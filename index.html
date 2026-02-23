@@ -829,15 +829,407 @@ const PARENT_TIPS = [
 "Peluk anak selepas tazkirah.",
 "Jangan marah jika anak lupa."
 ];
+// =============================
+// TEMPLATE PANJANGKAN TAZKIRAH (Cara 2)
+// =============================
+function buildLongTazkirah(day, title, baseText, extra){
+  // extra = {story, points[], reflection, doa, action}
+  const story = extra?.story ? `📖 Kisah Ringkas\n${extra.story}\n\n` : "";
+  const points = Array.isArray(extra?.points) && extra.points.length
+    ? `✅ 3 Pengajaran\n- ${extra.points.join("\n- ")}\n\n`
+    : "";
+  const reflection = extra?.reflection ? `💭 Refleksi Anak\n${extra.reflection}\n\n` : "";
+  const doa = extra?.doa ? `🤲 Doa Ringkas\n${extra.doa}\n\n` : "";
+  const action = extra?.action ? `🚀 Langkah Kecil Hari Ini\n${extra.action}\n\n` : "";
 
-const DAYS = Array.from({length: 30}, (_, i) => ({
-  day: i + 1,
-  title: TITLES[i],
-  tazkirah: TAZKIRAH[i],
-  mission: MISSIONS[i],
-  question: QUESTIONS[i],
-  parentTip: PARENT_TIPS[i % PARENT_TIPS.length],
-}));
+  // baseText: versi ringkas (yang Ustaz dah ada)
+  return (
+`Hari ${day} — ${title}
+
+${baseText}
+
+${story}${points}${reflection}${doa}${action}`.trim()
+  );
+}
+
+    const EXTRA_30 = [
+  {
+    story: "Seorang budak pernah ditanya, kenapa kamu puasa? Dia jawab, “Sebab Allah suruh, dan Allah nampak walau orang tak nampak.” Itulah ikhlas.",
+    points: [
+      "Ikhlas bermaksud buat sesuatu kerana Allah semata-mata",
+      "Amalan kecil jadi besar bila niat betul",
+      "Allah menilai hati sebelum menilai perbuatan"
+    ],
+    reflection: "Hari ini, adik buat baik sebab siapa?",
+    doa: "اللّهُمَّ اجْعَلْ عَمَلِي خَالِصًا لَكَ\nYa Allah, jadikan amalanku ikhlas kerana-Mu.",
+    action: "Sebelum solat, sebut dalam hati: ‘Ya Allah, aku buat ini kerana-Mu.’"
+  },
+
+  {
+    story: "Ada anak yang hampir marah bila diejek. Tapi dia ingat puasa bukan sekadar lapar. Dia diam dan senyum. Itu kemenangan sebenar.",
+    points: [
+      "Puasa latih kita kawal emosi",
+      "Orang kuat ialah orang yang tahan marah",
+      "Sabar menaikkan darjat di sisi Allah"
+    ],
+    reflection: "Apa yang adik boleh buat bila rasa marah?",
+    doa: "رَبِّ اشْرَحْ لِي صَدْرِي\nYa Tuhanku, lapangkanlah dadaku.",
+    action: "Latih tarik nafas 3 kali bila rasa geram."
+  },
+
+  {
+    story: "Seorang guru berkata, ‘Puasa itu perisai.’ Maksudnya, ia lindungi kita dari buat dosa. Kalau kita jaga puasa, puasa jaga kita.",
+    points: [
+      "Puasa mengajar kita jaga lidah",
+      "Mengata boleh rosakkan pahala",
+      "Diam lebih baik daripada berkata buruk"
+    ],
+    reflection: "Hari ini, ayat apa yang adik nak elakkan?",
+    doa: "اللّهُمَّ اهْدِنِي لِأَحْسَنِ الأَخْلاَقِ\nYa Allah, bimbing aku kepada akhlak terbaik.",
+    action: "Cuba satu hari tanpa mengata sesiapa."
+  },
+
+  {
+    story: "Seorang anak sedekah RM1 sahaja. Kawannya ketawa. Tapi guru berkata, ‘Di sisi Allah, mungkin itu lebih besar dari RM100.’",
+    points: [
+      "Nilai sedekah bukan pada jumlah",
+      "Allah gandakan pahala orang yang memberi",
+      "Sedekah boleh jadi sebab masuk syurga"
+    ],
+    reflection: "Apa yang adik boleh sedekahkan hari ini?",
+    doa: "رَبِّ زِدْنِي عِلْمًا وَرِزْقًا\nYa Allah, tambahkan ilmu dan rezekiku.",
+    action: "Masukkan sedikit duit dalam tabung masjid atau bantu orang."
+  },
+
+  {
+    story: "Pada 10 malam terakhir, Rasulullah ﷺ lebih kuat beribadah. Baginda bangunkan keluarga untuk solat bersama.",
+    points: [
+      "Lailatul Qadar lebih baik daripada 1000 bulan",
+      "Doa pada malam itu sangat mustajab",
+      "Bangun walau 2 rakaat pun sudah besar nilainya"
+    ],
+    reflection: "Jika malam ini Lailatul Qadar, apa doa adik?",
+    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\nYa Allah, Engkau Maha Pemaaf, maka maafkanlah aku.",
+    action: "Solat 2 rakaat sebelum tidur malam ini."
+  }
+
+        {
+    story: "Seorang pelajar hampir bergaduh kerana diejek. Dia ingat sabda Nabi ﷺ bahawa orang kuat bukan yang menang bergusti, tetapi yang mampu menahan marah. Dia diam dan berundur. Itulah kemenangan sebenar.",
+    points: [
+      "Orang kuat ialah yang mampu menahan marah (Hadis Riwayat Bukhari & Muslim)",
+      "Sabar ketika marah sangat tinggi nilainya di sisi Allah",
+      "Menahan marah boleh menjadi sebab masuk syurga"
+    ],
+    reflection: "Bila adik marah, apa cara paling berkesan untuk kawal diri?",
+    doa: "اللّهُمَّ اكْفِنِي شَرَّ نَفْسِي\nYa Allah, lindungilah aku daripada keburukan diriku.",
+    action: "Jika marah hari ini, ambil wuduk dan diam selama 1 minit."
+  },
+
+  {
+    story: "Seorang anak selalu melambatkan solat. Suatu hari dia dengar ayat Quran bahawa solat mencegah perbuatan keji dan mungkar. Sejak itu dia cuba solat awal waktu.",
+    points: [
+      "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ (Al-Ankabut:45)",
+      "Solat awal waktu tanda cinta kepada Allah",
+      "Rasulullah ﷺ sangat menjaga solat walau dalam keadaan sibuk"
+    ],
+    reflection: "Adakah adik menjaga solat pada waktunya?",
+    doa: "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي\nYa Tuhanku, jadikan aku dan keturunanku orang yang mendirikan solat.",
+    action: "Solat satu waktu hari ini tepat pada azan pertama."
+  },
+
+  {
+    story: "Seorang budak membaca Quran sedikit sahaja setiap hari. Kawannya ketawa. Tetapi gurunya berkata, ‘Allah suka amalan yang sedikit tetapi berterusan.’",
+    points: [
+      "أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِن قَلَّ (Hadis Riwayat Muslim)",
+      "1 huruf Quran diberi 10 pahala",
+      "Konsisten lebih penting daripada banyak tetapi jarang"
+    ],
+    reflection: "Adik lebih suka baca banyak sekali atau sedikit tetapi selalu?",
+    doa: "اللّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قَلْبِي\nYa Allah, jadikan Quran penenang hatiku.",
+    action: "Baca sekurang-kurangnya 5 minit Quran hari ini."
+  },
+
+  {
+    story: "Seorang anak membantu ibunya tanpa disuruh. Ibunya tersenyum dan mendoakannya. Rasulullah ﷺ bersabda bahawa redha Allah terletak pada redha ibu bapa.",
+    points: [
+      "رِضَا الرَّبِّ فِي رِضَا الْوَالِدَيْنِ (Hadis Riwayat Tirmizi)",
+      "Berbakti kepada ibu bapa termasuk ibadah",
+      "Doa ibu bapa sangat mustajab"
+    ],
+    reflection: "Apa satu perkara yang adik boleh bantu mak ayah hari ini?",
+    doa: "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا\nYa Allah, rahmatilah kedua ibu bapaku sebagaimana mereka mendidikku kecil.",
+    action: "Tawarkan bantuan kepada mak atau ayah tanpa diminta."
+  },
+
+  {
+    story: "Pada 10 malam terakhir Ramadan, Rasulullah ﷺ bersungguh-sungguh beribadah dan membangunkan keluarganya. Baginda mahu mencari Lailatul Qadar.",
+    points: [
+      "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ (Al-Qadr:3)",
+      "Doa pada malam itu sangat mustajab",
+      "Walau dua rakaat, nilainya sangat besar"
+    ],
+    reflection: "Jika malam ini Lailatul Qadar, apa doa terbesar adik?",
+    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\nYa Allah, Engkau Maha Pemaaf dan suka memaafkan, maka maafkanlah aku.",
+    action: "Bangun malam walau sebentar untuk solat 2 rakaat."
+  }
+
+      {
+    story: "Seorang anak selalu menonton video tanpa tapis. Suatu hari dia dengar ayat Quran bahawa Allah Maha Melihat. Sejak itu dia mula berhati-hati dengan apa yang dilihat.",
+    points: [
+      "إِنَّ اللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ (Al-Baqarah:110)",
+      "Mata adalah amanah daripada Allah",
+      "Apa yang kita lihat mempengaruhi hati"
+    ],
+    reflection: "Adakah tontonan hari ini mendekatkan adik kepada Allah?",
+    doa: "اللّهُمَّ احْفَظْ بَصَرِي وَقَلْبِي\nYa Allah, peliharalah pandanganku dan hatiku.",
+    action: "Pilih satu tontonan yang memberi ilmu hari ini."
+  },
+
+  {
+    story: "Ada dua sahabat. Seorang ajak ke masjid, seorang lagi ajak bermain hingga lewat solat. Akhirnya dia sedar, sahabat sebenar ialah yang membawa kita dekat dengan Allah.",
+    points: [
+      "المرء على دين خليله (Hadis Riwayat Abu Daud)",
+      "Kawan mempengaruhi akhlak dan iman",
+      "Pilih sahabat yang ingatkan tentang solat"
+    ],
+    reflection: "Siapa sahabat yang selalu ingatkan adik tentang kebaikan?",
+    doa: "اللّهُمَّ ارْزُقْنِي صُحْبَةً صَالِحَةً\nYa Allah, kurniakan aku sahabat yang soleh.",
+    action: "Ajak seorang kawan solat berjemaah."
+  },
+
+  {
+    story: "Seorang anak membaca Surah Al-Fatihah setiap hari tetapi tidak faham maksudnya. Bila dia belajar tafsirnya, solatnya menjadi lebih khusyuk.",
+    points: [
+      "اهدِنَا الصِّرَاطَ المُستَقِيمَ (Al-Fatihah:6)",
+      "Kita meminta petunjuk setiap kali solat",
+      "Solat lebih bermakna bila faham bacaan"
+    ],
+    reflection: "Apa maksud ‘jalan yang lurus’ bagi adik?",
+    doa: "اللّهُمَّ اهْدِنِي وَثَبِّتْنِي\nYa Allah, berilah aku petunjuk dan keteguhan.",
+    action: "Baca terjemahan Al-Fatihah sebelum solat."
+  },
+
+  {
+    story: "Seorang budak diejek kerana pakaiannya biasa sahaja. Dia tidak membalas, kerana dia tahu Allah melihat hati, bukan rupa.",
+    points: [
+      "إِنَّ اللَّهَ لَا يَنظُرُ إِلَى صُوَرِكُمْ وَلَا أَمْوَالِكُمْ وَلَٰكِن يَنظُرُ إِلَى قُلُوبِكُمْ (Hadis Riwayat Muslim)",
+      "Nilai manusia pada hati dan amal",
+      "Rendah diri lebih tinggi di sisi Allah"
+    ],
+    reflection: "Apa yang lebih penting: rupa atau hati?",
+    doa: "اللّهُمَّ طَهِّرْ قَلْبِي مِنَ الْكِبْرِ\nYa Allah, bersihkan hatiku daripada sifat sombong.",
+    action: "Puji seseorang kerana akhlaknya, bukan kerana rupa."
+  },
+
+  {
+    story: "Rasulullah ﷺ sangat pemurah di bulan Ramadan, seperti angin yang bertiup membawa kebaikan kepada semua orang.",
+    points: [
+      "كَانَ رَسُولُ اللَّهِ أَجْوَدَ النَّاسِ (Hadis Riwayat Bukhari)",
+      "Pemurah tanda hati hidup",
+      "Sedekah memadamkan dosa"
+    ],
+    reflection: "Apa bentuk sedekah paling mudah untuk adik lakukan?",
+    doa: "اللّهُمَّ اجْعَلْنِي مِنَ الْمُحْسِنِينَ\nYa Allah, jadikan aku daripada orang yang berbuat baik.",
+    action: "Sedekahkan sesuatu walaupun kecil hari ini."
+  }
+
+      {
+    story: "Seorang pelajar rajin beribadah di bulan Ramadan, tetapi selepas itu dia kembali malas. Gurunya berkata, ‘Ibadah bukan bermusim, tetapi tanda hati yang hidup.’",
+    points: [
+      "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ (Ali-Imran:102)",
+      "Taqwa bermaksud sentiasa sedar Allah melihat kita",
+      "Ibadah yang berterusan lebih dicintai Allah"
+    ],
+    reflection: "Adakah ibadah adik hanya semangat bila orang nampak?",
+    doa: "اللّهُمَّ اجْعَلْنِي مِنَ الْمُتَّقِينَ\nYa Allah, jadikan aku daripada orang yang bertaqwa.",
+    action: "Lakukan satu ibadah walaupun tiada siapa melihat."
+  },
+
+  {
+    story: "Seorang anak suka menyalahkan orang lain bila gagal. Suatu hari dia belajar bahawa muhasabah diri lebih penting daripada menyalahkan orang.",
+    points: [
+      "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ (Al-Hashr:18)",
+      "Muhasabah bermaksud menilai diri sendiri",
+      "Orang berjaya sentiasa memperbaiki diri"
+    ],
+    reflection: "Apa kesilapan adik yang boleh diperbaiki hari ini?",
+    doa: "رَبِّ اغْفِرْ لِي وَاهْدِنِي\nYa Allah, ampuni dan bimbinglah aku.",
+    action: "Sebelum tidur, fikir satu perkara yang boleh diperbaiki esok."
+  },
+
+  {
+    story: "Seorang budak menang pertandingan dan menjadi sombong. Gurunya mengingatkan bahawa segala kelebihan datang daripada Allah.",
+    points: [
+      "وَمَا بِكُم مِّن نِّعْمَةٍ فَمِنَ اللَّهِ (An-Nahl:53)",
+      "Sombong memusnahkan pahala",
+      "Rendah hati menambah kemuliaan"
+    ],
+    reflection: "Bila adik berjaya, adik ingat siapa?",
+    doa: "اللّهُمَّ جَنِّبْنِي الْكِبْرَ\nYa Allah, jauhkan aku daripada kesombongan.",
+    action: "Ucap ‘Alhamdulillah’ setiap kali berjaya."
+  },
+
+  {
+    story: "Seorang anak tidak sabar menunggu berbuka dan mengeluh. Ayahnya berkata, ‘Puasa ini untuk melatih kesabaran dan keikhlasan.’",
+    points: [
+      "إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ (Az-Zumar:10)",
+      "Ganjaran orang sabar tidak terbatas",
+      "Kesabaran membentuk akhlak yang kuat"
+    ],
+    reflection: "Dalam keadaan apa adik paling susah untuk sabar?",
+    doa: "اللّهُمَّ أَعِنِّي عَلَى الصَّبْرِ\nYa Allah, bantulah aku untuk bersabar.",
+    action: "Tahan satu keluhan hari ini walau terasa penat."
+  },
+
+  {
+    story: "Rasulullah ﷺ sentiasa menjaga lidahnya. Baginda bersabda bahawa sesiapa yang beriman kepada Allah dan hari akhirat hendaklah berkata baik atau diam.",
+    points: [
+      "مَن كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ (Hadis Riwayat Bukhari & Muslim)",
+      "Perkataan boleh jadi pahala atau dosa",
+      "Diam lebih selamat daripada berkata buruk"
+    ],
+    reflection: "Hari ini, adik lebih banyak bercakap atau berfikir sebelum bercakap?",
+    doa: "اللّهُمَّ احْفَظْ لِسَانِي\nYa Allah, peliharalah lidahku.",
+    action: "Fikir 3 saat sebelum bercakap hari ini."
+  }
+
+      {
+    story: "Rasulullah ﷺ apabila masuk 10 malam terakhir, Baginda bersungguh-sungguh beribadah dan menghidupkan malamnya. Baginda tahu malam-malam ini sangat istimewa.",
+    points: [
+      "كَانَ رَسُولُ اللَّهِ يُحْيِي اللَّيْلَ فِي الْعَشْرِ الأَوَاخِرِ (Hadis Riwayat Muslim)",
+      "10 malam terakhir lebih bernilai dari malam biasa",
+      "Kesungguhan menunjukkan cinta kepada Allah"
+    ],
+    reflection: "Adakah adik bersungguh-sungguh pada malam terakhir Ramadan?",
+    doa: "اللّهُمَّ بَلِّغْنِي لَيْلَةَ الْقَدْرِ\nYa Allah, temukan aku dengan Lailatul Qadar.",
+    action: "Kurangkan bermain malam ini dan tambah ibadah walau sedikit."
+  },
+
+  {
+    story: "Seorang anak bangun malam walau mengantuk. Dia tahu mungkin malam itu Lailatul Qadar — malam yang lebih baik daripada 1000 bulan.",
+    points: [
+      "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ (Al-Qadr:3)",
+      "1000 bulan bersamaan lebih 83 tahun",
+      "Satu malam boleh ubah hidup seseorang"
+    ],
+    reflection: "Jika malam ini Lailatul Qadar, apa doa terbesar adik?",
+    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    action: "Solat dua rakaat sebelum tidur malam ini."
+  },
+
+  {
+    story: "Seorang anak menangis dalam doa kerana teringat dosa kecilnya. Dia sedar Allah Maha Pengampun.",
+    points: [
+      "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ (Az-Zumar:53)",
+      "Allah tidak pernah tutup pintu taubat",
+      "Taubat ikhlas memadam dosa"
+    ],
+    reflection: "Apa perkara yang adik mahu mohon ampun hari ini?",
+    doa: "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنتَ التَّوَّابُ الرَّحِيمُ",
+    action: "Istighfar sekurang-kurangnya 20 kali malam ini."
+  },
+
+  {
+    story: "Seorang anak berdoa bukan hanya untuk dirinya, tetapi untuk ibu bapa, guru dan saudara seagama.",
+    points: [
+      "Doa untuk orang lain kembali kepada diri (Hadis Riwayat Muslim)",
+      "Hati yang mendoakan orang lain lebih lembut",
+      "Islam ajar kita fikir ummah"
+    ],
+    reflection: "Siapa yang adik mahu doakan malam ini?",
+    doa: "اللّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+    action: "Doakan sekurang-kurangnya 3 orang malam ini."
+  },
+
+  {
+    story: "Ramadan hampir berakhir. Seorang anak takut amalannya tidak diterima. Gurunya berkata, ‘Orang yang risau amal tak diterima tanda hatinya hidup.’",
+    points: [
+      "وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ (Al-Mu’minun:60)",
+      "Orang beriman risau amalnya tidak diterima",
+      "Doa supaya amal diterima sangat penting"
+    ],
+    reflection: "Adakah adik pernah doa supaya Allah terima amalan?",
+    doa: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
+    action: "Selepas solat, doa supaya semua amalan Ramadan diterima."
+  }
+
+      {
+    story: "Malam semakin sunyi. Seorang anak duduk bersama ayahnya di masjid. Lampu malap, orang berdoa perlahan. Dia terfikir, mungkin malam ini Lailatul Qadar.",
+    points: [
+      "تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا (Al-Qadr:4)",
+      "Malaikat turun pada malam itu",
+      "Malam penuh ketenangan hingga Subuh"
+    ],
+    reflection: "Jika malam ini malaikat melihat kita, apa yang kita sedang buat?",
+    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    action: "Bangun walau 10 minit untuk berdoa sebelum tidur."
+  },
+
+  {
+    story: "Ramadan hampir tamat. Seorang anak sedih kerana takut dia kembali lalai selepas Syawal.",
+    points: [
+      "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ (Hadis Riwayat Bukhari & Muslim)",
+      "Amalan paling Allah suka ialah yang konsisten",
+      "Sedikit tapi berterusan lebih baik"
+    ],
+    reflection: "Apa satu amalan kecil yang adik mahu teruskan selepas Ramadan?",
+    doa: "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
+    action: "Pilih satu amalan harian (contoh: 3 ayat Quran sehari)."
+  },
+
+  {
+    story: "Seorang guru berkata, ‘Ramadan bukan penamat. Ia seperti sekolah latihan. Selepas itu kita diuji dalam kehidupan sebenar.’",
+    points: [
+      "وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ (Al-Hijr:99)",
+      "Ibadah bukan hanya dalam Ramadan",
+      "Allah mahu kita istiqamah sepanjang hayat"
+    ],
+    reflection: "Adakah adik hanya baik ketika Ramadan sahaja?",
+    doa: "رَبِّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
+    action: "Solat tepat waktu walaupun Ramadan sudah habis."
+  },
+
+  {
+    story: "Seorang anak bertanya, ‘Apa jadi kalau Allah tanya aku di akhirat nanti?’ Ayahnya menjawab, ‘Allah tanya tentang solat, amanah dan hati kita.’",
+    points: [
+      "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ (Az-Zalzalah:7)",
+      "Setiap kebaikan akan ditunjukkan",
+      "Setiap keburukan juga akan ditunjukkan"
+    ],
+    reflection: "Jika hari ini hari terakhir hidup kita, adakah kita sudah bersedia?",
+    doa: "اللّهُمَّ حَاسِبْنِي حِسَابًا يَسِيرًا",
+    action: "Minta maaf kepada seseorang yang pernah kita sakiti."
+  },
+
+  {
+    story: "Hari terakhir Ramadan. Seorang anak memandang langit dan berkata, ‘Ya Allah, jangan biarkan aku jadi jauh dari-Mu selepas ini.’ Hatinya penuh harapan.",
+    points: [
+      "إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا (An-Nahl:128)",
+      "Allah bersama orang yang bertakwa",
+      "Ramadan melatih kita jadi orang bertakwa"
+    ],
+    reflection: "Adakah Ramadan ini menjadikan adik lebih baik daripada sebelum ini?",
+    doa: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
+    action: "Tulis 3 azam baik untuk selepas Ramadan."
+  }
+    
+];
+    
+
+    const DAYS = Array.from({length: 30}, (_, i) => i + 1).map(day => {
+  const title = defaultTitle(day);
+  const base = defaultTazkirah(day);         // versi ringkas (asal)
+  const extra = EXTRA_30[day - 1] || {};     // extra untuk hari tersebut
+
+  return {
+    day,
+    title,
+    tazkirah: buildLongTazkirah(day, title, base, extra), // <-- auto panjang
+    mission: defaultMission(day),
+    question: defaultQuestion(day),
+    parentTip: defaultParentTip(day),
+  };
+});
 
     function defaultTitle(day){
       const titles = [
@@ -1174,4 +1566,5 @@ const DAYS = Array.from({length: 30}, (_, i) => ({
   </script>
 </body>
 </html>
+
 
