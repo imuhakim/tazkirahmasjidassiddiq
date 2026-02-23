@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tazkirah Ramadhan — Versi Kanak-Kanak</title>
+  <meta name="description" content="Tazkirah Ramadan versi kanak-kanak: 30 hari, klik untuk baca tazkirah ringkas dan mudah." />
+  <meta name="color-scheme" content="light only" />
+
+  <!-- Cute readable font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+  :root{
+  /* royal yellow, ceria tapi still premium */
+  --bg:#fff7cc;       /* kuning lembut */
+  --bg2:#fff1a3;      /* kuning ceria */
+
+  --card:#ffffff;
+  --ink:#1f2937;
+  --muted:#6b7280;
+
+  --brand:#f59e0b;    /* amber (kuning raja) */
+  --brand2:#facc15;   /* yellow terang */
+  --accent:#fb7185;   /* pink manja (kids) */
+  --mint:#22c55e;     /* hijau */
+  --sky:#06b6d4;      /* cyan */
+
+  --softShadow: 0 18px 50px rgba(17,24,39,.14);
+  --softShadow2: 0 10px 28px rgba(17,24,39,.12);
+  --radius: 26px;
+}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+  radial-gradient(1200px 700px at 12% 10%, rgba(245,158,11,.22), transparent 60%),
+  radial-gradient(900px 600px at 85% 12%, rgba(250,204,21,.20), transparent 55%),
+  radial-gradient(900px 600px at 25% 85%, rgba(34,197,94,.14), transparent 55%),
+  linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+
+    .container{
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 26px 18px 40px;
+    }
+
+    /* Header block like screenshot */
+    .hero{
+  background: linear-gradient(135deg, rgba(245,158,11,.98), rgba(250,204,21,.96));
+  border-radius: 30px;
+  padding: 26px 22px;
+  box-shadow: var(--softShadow);
+  position: relative;
+  overflow:hidden;
+}
+
+    .hero::before{
+      content:"";
+      position:absolute; inset:-80px -80px auto auto;
+      width:240px; height:240px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 10px, transparent 11px),
+        radial-gradient(circle at 65% 25%, rgba(255,255,255,.30) 0 8px, transparent 9px),
+        radial-gradient(circle at 35% 70%, rgba(255,255,255,.32) 0 9px, transparent 10px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,.26) 0 7px, transparent 8px);
+      opacity:.35;
+      transform: rotate(14deg);
+      filter: blur(.2px);
+    }
+
+    .topRow{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+    }
+
+    .titleBlock{
+      min-width: 0;
+    }
+
+    .kicker{
+      font-family:"Baloo 2", cursive;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.90);
+ text-shadow: 0 2px 12px rgba(0,0,0,.20);
+    }
+    .mainTitle{
+      margin: 8px 0 6px;
+      font-family:"Baloo 2", cursive;
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height: 1.05;
+      color: #fff;
+      font-weight: 800;
+text-shadow: 0 2px 10px rgba(0,0,0,.16);
+    }
+    .subTitle{
+      margin:0;
+      color: rgba(255,255,255,.88);
+      font-weight: 700;
+      font-size: 15px;
+text-shadow: 0 2px 10px rgba(0,0,0,.16);
+    }
+
+   .logoWrap{
+  flex: 0 0 auto;
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.logoWrap::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.45);
+  pointer-events:none;
+}
+
+.logoImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 999px;
+  display:block;
+  background: rgba(255,255,255,.85);
+}
+    .logoInner{
+      width: 62px; height: 62px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      display:grid;
+      place-items:center;
+      font-family:"Baloo 2", cursive;
+      font-weight: 900;
+      color: rgba(124,58,237,.95);
+    }
+    .logoSmall{
+      font-size: 12px;
+      line-height:1.1;
+      text-align:center;
+      padding: 0 6px;
+    }
+
+    /* Search like screenshot */
+    .searchWrap{
+      margin-top: 18px;
+      background: rgba(255,255,255,.95);
+      border-radius: 22px;
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      box-shadow: var(--softShadow2);
+      border: 1px solid rgba(255,255,255,.55);
+    }
+    .searchIcon{
+      width: 38px; height: 38px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(124,58,237,.14), rgba(236,72,153,.14));
+      font-size: 18px;
+    }
+    .searchInput{
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(31,41,55,.90);
+    }
+    .chipBtn{
+      border:none;
+      cursor:pointer;
+      padding: 10px 12px;
+      border-radius: 16px;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(6,182,212,.18));
+      color: rgba(31,41,55,.88);
+      white-space: nowrap;
+    }
+
+    /* Grid like screenshot */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 760px){
+      .grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 420px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .dayCard{
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 22px;
+  padding: 12px 10px;
+  text-align:center;
+  color:#1f2937; /* tukar jadi gelap supaya kontras elok atas putih-kuning */
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  user-select:none;
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  position: relative;
+  overflow:hidden;
+  min-height: 88px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 2px;
+}
+    .dayCard:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(0,0,0,.16);
+      background: rgba(255,255,255,.20);
+    }
+
+    .dayLabel{
+      font-family:"Baloo 2", cursive;
+      font-weight: 800;
+      letter-spacing: .06em;
+      font-size: 12px;
+      opacity: .92;
+color: rgba(31,41,55,.70);
+    }
+    .dayNum{
+      font-family:"Baloo 2", cursive;
+      font-weight: 900;
+      font-size: 34px;
+      line-height: 1;
+color: rgba(31,41,55,.92);
+    }
+
+    .badgeDone{
+      position:absolute;
+      top:10px; right:10px;
+      width: 26px; height: 26px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      font-weight: 900;
+      background: rgba(34,197,94,.92);
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(34,197,94,.25);
+      transform: scale(0);
+      transition: transform .12s ease;
+    }
+    .dayCard.done .badgeDone{ transform: scale(1); }
+
+    .footerHint{
+      margin-top: 14px;
+      color: rgba(255,255,255,.90);
+      font-weight: 700;
+      font-size: 13px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .miniPill{
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.18);
+      font-weight: 900;
+    }
+
+    /* Modal */
+    .modalOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(17,24,39,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+      z-index: 9999;
+    }
+    .modalOverlay.open{ display:flex; }
+
+    .modal{
+      width: min(860px, 100%);
+      border-radius: 26px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+      border: 1px solid rgba(31,41,55,.10);
+      overflow:hidden;
+    }
+
+    .modalHeader{
+        padding: 16px 16px 12px;
+  background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(250,204,21,.16));
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+    }
+    .modalTitle{
+      margin:0;
+      font-family:"Baloo 2", cursive;
+      font-weight: 900;
+      font-size: 22px;
+      line-height:1.15;
+    }
+    .modalSub{
+      margin: 4px 0 0;
+      color: rgba(107,114,128,.95);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .closeBtn{
+      border:none;
+      cursor:pointer;
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      background: rgba(31,41,55,.08);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .modalBody{
+      padding: 14px 16px 16px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+    }
+    @media (max-width: 760px){
+      .modalBody{ grid-template-columns:1fr; }
+    }
+
+    .paper{
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(31,41,55,.10);
+      box-shadow: 0 14px 40px rgba(17,24,39,.08);
+      padding: 14px 14px;
+    }
+    .paper h4{
+      margin:0 0 8px;
+      font-family:"Baloo 2", cursive;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .tazkirahText{
+      color: rgba(31,41,55,.90);
+      font-weight: 700;
+      line-height: 1.7;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+
+    .sideCard{
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(34,197,94,.12), rgba(6,182,212,.10), rgba(245,158,11,.12));
+      border: 1px solid rgba(31,41,55,.08);
+      box-shadow: 0 14px 40px rgba(17,24,39,.08);
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .task{
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(31,41,55,.08);
+      border-radius: 18px;
+      padding: 12px;
+    }
+    .task b{ font-family:"Baloo 2", cursive; font-weight: 900; }
+    .task p{ margin:6px 0 0; color: rgba(107,114,128,.95); font-weight: 800; line-height:1.55; font-size: 13px; }
+
+    .btnRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 2px;
+    }
+    .btn{
+      border:none;
+      cursor:pointer;
+      padding: 12px 12px;
+      border-radius: 18px;
+      font-weight: 1000;
+      box-shadow: 0 12px 26px rgba(17,24,39,.10);
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .btnPrimary{
+      color:white;
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(6,182,212,.92));
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(31,41,55,.10);
+      color: rgba(31,41,55,.92);
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      background: rgba(31,41,55,.92);
+      color:#fff;
+      padding: 10px 12px;
+      border-radius: 16px;
+      font-weight: 900;
+      box-shadow: 0 16px 50px rgba(0,0,0,.22);
+      z-index: 10000;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .toast.show{
+      opacity:1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="topRow">
+        <div class="titleBlock">
+          <div class="kicker">TAZKIRAH RAMADHAN</div>
+          <h1 class="mainTitle">Masjid As Siddiq Bandar Seri Iskandar</h1>
+          <p class="subTitle">Ramadhan 1446H • Versi Kanak-Kanak 🌙✨</p>
+        </div>
+
+        <!-- Logo bulat -->
+      <div class="logoWrap" title="Masjid As-Siddiq, Bandar Seri Iskandar">
+  <img
+    src="logomasjid.jpeg"
+    alt="Logo Masjid As-Siddiq Bandar Seri Iskandar"
+    class="logoImg"
+    loading="lazy"
+  />
+</div>
+      </div>
+
+      <div class="searchWrap">
+        <div class="searchIcon">🔎</div>
+        <input id="searchInput" class="searchInput" type="text" placeholder="Cari tajuk tazkirah..." />
+        <button id="resetBtn" class="chipBtn" type="button" title="Reset tanda siap">Reset ✅</button>
+      </div>
+
+      <div id="grid" class="grid" aria-label="Senarai Hari Tazkirah"></div>
+
+      <div class="footerHint">
+        <span class="miniPill">Tip: Klik “Hari” untuk buka tazkirah</span>
+        <span class="miniPill">Boleh cari ikut tajuk</span>
+        <span class="miniPill">Boleh tanda “Siap”</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalOverlay" class="modalOverlay" role="dialog" aria-modal="true" aria-label="Tazkirah">
+    <div class="modal">
+      <div class="modalHeader">
+        <div>
+          <h3 id="modalTitle" class="modalTitle">Hari 1: ...</h3>
+          <p id="modalSub" class="modalSub">Tazkirah ringkas untuk anak-anak (mudah & ceria)</p>
+        </div>
+        <button id="closeBtn" class="closeBtn" aria-label="Tutup">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="paper">
+          <h4>📖 Tazkirah</h4>
+          <div id="tazkirahText" class="tazkirahText"></div>
+        </div>
+
+        <div class="sideCard">
+          <div class="task">
+            <b>🎯 Misi Hari Ini</b>
+            <p id="missionText">—</p>
+          </div>
+
+          <div class="task">
+            <b>💬 Soalan Untuk Anak</b>
+            <p id="questionText">—</p>
+          </div>
+
+          <div class="btnRow">
+            <button id="markDoneBtn" class="btn btnPrimary" type="button">✅ Tanda Siap</button>
+            <button id="copyLinkBtn" class="btn btnGhost" type="button">🔗 Copy Link</button>
+          </div>
+
+          <div class="task">
+            <b>👨‍👩‍👧 Tip Mak Ayah</b>
+            <p id="parentTipText">Biar anak jawab sendiri, jangan cepat betulkan. Puji usaha kecil dia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Done</div>
+
+  <script>
+    // =============================
+    // DATA: 30 Hari (Ustaz boleh edit tajuk & teks)
+    // =============================
+    const DAYS = Array.from({length: 30}, (_, i) => i + 1).map(day => ({
+      day,
+      title: defaultTitle(day),
+      tazkirah: defaultTazkirah(day),
+      mission: defaultMission(day),
+      question: defaultQuestion(day),
+      parentTip: defaultParentTip(day),
+    }));
+
+    function defaultTitle(day){
+      const titles = [
+        "Niat: Ramadan Untuk Allah",
+        "Puasa Bukan Lapar Je",
+        "Mulut Puasa, Hati Pun Puasa",
+        "Senyum Itu Sedekah",
+        "Doa Simple, Tapi Power",
+        "Jaga Lidah: Cakap Baik",
+        "Solat On Time, Hati Tenang",
+        "Quran Kawan Paling Baik",
+        "Bantu Mak Ayah, Pahala Jalan",
+        "Jadi Anak yang Lembut",
+        "Sabar Bila Penat",
+        "Kawan Baik Tarik Kita Naik",
+        "Berbagi Rezeki",
+        "Jaga Mata dari Benda Tak Elok",
+        "Istighfar Bila Silap",
+        "Syukur: Nampak Nikmat Kecil",
+        "Adab Makan & Minum",
+        "Jaga Barang, Jaga Amanah",
+        "Buat Baik Senyap-senyap",
+        "Takut Allah Itu Comel (Bukan Seram)",
+        "Tolong Orang: Hero Ramadan",
+        "Tadarus: 5 Minit pun jadi",
+        "Jangan Suka Mengata",
+        "Beri Salam, Sebar Damai",
+        "Sedekah Duit/Barang/Doa",
+        "Malam Ramadan Istimewa",
+        "Buru Lailatul Qadar (Intro)",
+        "Doa untuk Ummah",
+        "Maafkan Orang",
+        "Jaga Ramadan Lepas Ramadan"
+      ];
+      return titles[day-1] || `Tazkirah Hari ${day}`;
+    }
+
+    function defaultTazkirah(day){
+      return `Hari ${day} — ${defaultTitle(day)}\n\n` +
+      `Adik sayang, Ramadan ni macam “bulan latihan superhero”.\n` +
+      `Kita bukan latihan kuat badan saja, tapi latihan kuat hati.\n\n` +
+      `1) Bila kita puasa, Allah ajar kita sabar.\n` +
+      `2) Bila kita tahan marah, Allah sayang.\n` +
+      `3) Bila kita buat baik walau kecil, pahala besar.\n\n` +
+      `Ingat ya: Allah tengok usaha, bukan tunggu kita perfect.\n` +
+      `Hari ni, kita buat satu kebaikan kecil tapi konsisten.\n\n` +
+      `✨ “Kebaikan kecil + istiqamah = jadi hebat.”`;
+    }
+
+    function defaultMission(day){
+      const missions = [
+        "Baca doa berbuka (atau hafal 1 baris).",
+        "Senyum & ucap terima kasih pada mak/abah.",
+        "Tolong kemas sejadah atau susun kasut.",
+        "Beri salam pada 3 orang hari ni.",
+        "Istighfar 10 kali sebelum tidur.",
+        "Sedekah: duit syiling/air/biskut (ikut mampu).",
+        "Solat berjemaah sekurang-kurangnya 1 waktu.",
+        "Baca 3 ayat Quran (atau dengar 2 minit).",
+        "Tolong mak basuh pinggan 3 biji.",
+        "Sabar bila diminta berhenti main (tak merajuk).",
+      ];
+      return missions[(day-1) % missions.length];
+    }
+
+    function defaultQuestion(day){
+      const qs = [
+        "Kalau Allah tengok kita sekarang, apa benda baik yang kita boleh buat?",
+        "Apa satu perkara yang buat adik rasa bersyukur hari ni?",
+        "Bila adik marah, adik nak buat apa supaya tenang?",
+        "Kalau kawan sedih, apa ayat baik yang adik boleh cakap?",
+        "Adik nak doa apa untuk keluarga?",
+      ];
+      return qs[(day-1) % qs.length];
+    }
+
+    function defaultParentTip(day){
+      const tips = [
+        "Jangan syarah panjang. 1 minit cukup, lepas tu suruh anak ulang balik.",
+        "Bagi anak pilih misi sendiri (pilihan 2). Anak lebih nak buat.",
+        "Pujian spesifik: “Bagus sebab adik sabar tadi,” bukan “pandai”.",
+        "Kalau anak gagal, ulang esok. Ramadan ni latihan, bukan exam.",
+        "Buat sama-sama. Anak ikut apa dia nampak, bukan apa dia dengar.",
+      ];
+      return tips[(day-1) % tips.length];
+    }
+
+    // =============================
+    // Progress storage
+    // =============================
+    const KEY = "tazkirah_ramadhan_kids_done_v1";
+    const StorageSafe = (() => {
+      function canUseLocalStorage(){
+        try{
+          const k="__tst__";
+          localStorage.setItem(k,"1");
+          localStorage.removeItem(k);
+          return true;
+        }catch(e){ return false; }
+      }
+      const useLS = canUseLocalStorage();
+      function getCookie(name){
+        const m = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+        return m ? decodeURIComponent(m[2]) : null;
+      }
+      function setCookie(name, value, days=365){
+        const d = new Date();
+        d.setTime(d.getTime() + days*24*60*60*1000);
+        document.cookie = `${name}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/`;
+      }
+      return {
+        get(){
+          try{ return useLS ? localStorage.getItem(KEY) : getCookie(KEY); } catch(e){ return null; }
+        },
+        set(val){
+          try{ useLS ? localStorage.setItem(KEY, val) : setCookie(KEY, val); } catch(e){}
+        },
+        clear(){
+          try{
+            if(useLS) localStorage.removeItem(KEY);
+            else setCookie(KEY, "", -1);
+          }catch(e){}
+        }
+      };
+    })();
+
+    let done = new Set();
+    function loadDone(){
+      try{
+        const raw = StorageSafe.get();
+        if(!raw) return;
+        const arr = JSON.parse(raw);
+        if(Array.isArray(arr)) done = new Set(arr);
+      }catch(e){}
+    }
+    function saveDone(){
+      StorageSafe.set(JSON.stringify(Array.from(done)));
+    }
+
+    // =============================
+    // UI Elements
+    // =============================
+    const gridEl = document.getElementById("grid");
+    const searchEl = document.getElementById("searchInput");
+    const resetBtn = document.getElementById("resetBtn");
+
+    const overlay = document.getElementById("modalOverlay");
+    const closeBtn = document.getElementById("closeBtn");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSub = document.getElementById("modalSub");
+    const tazkirahText = document.getElementById("tazkirahText");
+    const missionText = document.getElementById("missionText");
+    const questionText = document.getElementById("questionText");
+    const parentTipText = document.getElementById("parentTipText");
+    const markDoneBtn = document.getElementById("markDoneBtn");
+    const copyLinkBtn = document.getElementById("copyLinkBtn");
+
+    const toast = document.getElementById("toast");
+
+    let currentDay = 1;
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(()=> toast.classList.remove("show"), 1400);
+    }
+
+    function openModal(day){
+      const item = DAYS.find(x => x.day === day);
+      if(!item) return;
+
+      currentDay = day;
+
+      modalTitle.textContent = `Hari ${item.day}: ${item.title}`;
+      modalSub.textContent = `Tazkirah ringkas untuk anak-anak • Surau At-Taqwa CVR`;
+      tazkirahText.textContent = item.tazkirah;
+      missionText.textContent = item.mission;
+      questionText.textContent = item.question;
+      parentTipText.textContent = item.parentTip;
+
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+      window.location.hash = `hari-${day}`;
+    }
+
+    function closeModal(){
+      overlay.classList.remove("open");
+      document.body.style.overflow = "";
+      // keep hash as is (so link still meaningful)
+    }
+
+    function toggleDone(day){
+      if(done.has(day)) done.delete(day);
+      else done.add(day);
+      saveDone();
+      renderGrid(searchEl.value);
+      showToast(done.has(day) ? "Ditanda siap ✅" : "Buang tanda siap");
+    }
+
+    function copyLink(day){
+      const base = window.location.origin + window.location.pathname;
+      const url = `${base}#hari-${day}`;
+      navigator.clipboard?.writeText(url).then(()=>{
+        showToast("Link dicopy 🔗");
+      }).catch(()=>{
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("Link dicopy 🔗");
+      });
+    }
+
+    function renderGrid(query=""){
+      gridEl.innerHTML = "";
+      const q = (query || "").trim().toLowerCase();
+
+      const filtered = DAYS.filter(d => {
+        if(!q) return true;
+        return (d.title + " " + d.tazkirah).toLowerCase().includes(q);
+      });
+
+      // If search used, show only matching days; else show all 30
+      const list = filtered;
+
+      for(const d of list){
+        const card = document.createElement("div");
+        card.className = "dayCard" + (done.has(d.day) ? " done" : "");
+        card.setAttribute("role","button");
+        card.setAttribute("tabindex","0");
+        card.setAttribute("aria-label", `Hari ${d.day}: ${d.title}`);
+
+        // change card tint subtly (still similar look)
+        const tint = (d.day % 5);
+        const bg = [
+          "rgba(255,255,255,.16)",
+          "rgba(255,255,255,.18)",
+          "rgba(255,255,255,.15)",
+          "rgba(255,255,255,.19)",
+          "rgba(255,255,255,.17)"
+        ][tint];
+        card.style.background = bg;
+
+        card.innerHTML = `
+          <div class="badgeDone">✓</div>
+          <div class="dayLabel">HARI</div>
+          <div class="dayNum">${d.day}</div>
+        `;
+
+        card.addEventListener("click", () => openModal(d.day));
+        card.addEventListener("keydown", (e)=>{
+          if(e.key === "Enter" || e.key === " ") openModal(d.day);
+        });
+
+        gridEl.appendChild(card);
+      }
+
+      // If nothing found
+      if(list.length === 0){
+        const empty = document.createElement("div");
+        empty.style.gridColumn = "1 / -1";
+        empty.style.background = "rgba(255,255,255,.92)";
+        empty.style.border = "1px solid rgba(255,255,255,.55)";
+        empty.style.borderRadius = "22px";
+        empty.style.padding = "14px";
+        empty.style.boxShadow = "0 12px 28px rgba(17,24,39,.10)";
+        empty.innerHTML = `
+          <div style="font-weight:1000;">😅 Tak jumpa</div>
+          <div style="margin-top:6px;color:rgba(107,114,128,.95);font-weight:800;">
+            Cuba taip kata lain. Contoh: <b>niat</b>, <b>doa</b>, <b>quran</b>, <b>sedekah</b>.
+          </div>
+        `;
+        gridEl.appendChild(empty);
+      }
+    }
+
+    // Events
+    searchEl.addEventListener("input", () => renderGrid(searchEl.value));
+
+    resetBtn.addEventListener("click", ()=>{
+      if(confirm("Reset semua tanda siap?")){
+        done = new Set();
+        StorageSafe.clear();
+        renderGrid(searchEl.value);
+        showToast("Progress reset!");
+      }
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e)=>{
+      if(e.target === overlay) closeModal();
+    });
+    window.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape") closeModal();
+    });
+
+    markDoneBtn.addEventListener("click", ()=> toggleDone(currentDay));
+    copyLinkBtn.addEventListener("click", ()=> copyLink(currentDay));
+
+    // Deep link: #hari-7
+    function handleHash(){
+      const h = (window.location.hash || "").trim();
+      const m = h.match(/^#hari-(\d{1,2})$/);
+      if(m){
+        const day = parseInt(m[1],10);
+        if(day >= 1 && day <= 30) openModal(day);
+      }
+    }
+    window.addEventListener("hashchange", handleHash);
+
+    // Init
+    loadDone();
+    renderGrid("");
+    handleHash();
+  </script>
+</body>
+</html>
