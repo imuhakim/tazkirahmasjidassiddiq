@@ -2,48 +2,45 @@
 <html lang="ms">
 <head>
   <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tazkirah Ramadhan — Versi Kanak-Kanak</title>
   <meta name="description" content="Tazkirah Ramadan versi kanak-kanak: 30 hari, klik untuk baca tazkirah ringkas dan mudah." />
   <meta name="color-scheme" content="light only" />
 
-  <!-- Cute readable font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
-  :root{
-  /* royal yellow, ceria tapi still premium */
-  --bg:#fff7cc;       /* kuning lembut */
-  --bg2:#fff1a3;      /* kuning ceria */
+    :root{
+      --bg:#fff7cc;       /* kuning lembut */
+      --bg2:#fff1a3;      /* kuning ceria */
+      --ink:#1f2937;
+      --muted:#6b7280;
 
-  --card:#ffffff;
-  --ink:#1f2937;
-  --muted:#6b7280;
+      --brand:#f59e0b;    /* amber */
+      --brand2:#facc15;   /* yellow */
+      --accent:#fb7185;   /* kids pink */
+      --mint:#22c55e;
+      --sky:#06b6d4;
 
-  --brand:#f59e0b;    /* amber (kuning raja) */
-  --brand2:#facc15;   /* yellow terang */
-  --accent:#fb7185;   /* pink manja (kids) */
-  --mint:#22c55e;     /* hijau */
-  --sky:#06b6d4;      /* cyan */
-
-  --softShadow: 0 18px 50px rgba(17,24,39,.14);
-  --softShadow2: 0 10px 28px rgba(17,24,39,.12);
-  --radius: 26px;
-}
+      --softShadow: 0 18px 50px rgba(17,24,39,.14);
+      --softShadow2: 0 10px 28px rgba(17,24,39,.12);
+    }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       color:var(--ink);
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-  radial-gradient(1200px 700px at 12% 10%, rgba(245,158,11,.22), transparent 60%),
-  radial-gradient(900px 600px at 85% 12%, rgba(250,204,21,.20), transparent 55%),
-  radial-gradient(900px 600px at 25% 85%, rgba(34,197,94,.14), transparent 55%),
-  linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(1200px 700px at 12% 10%, rgba(245,158,11,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 12%, rgba(250,204,21,.20), transparent 55%),
+        radial-gradient(900px 600px at 25% 85%, rgba(34,197,94,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
     .container{
@@ -52,19 +49,20 @@
       padding: 26px 18px 40px;
     }
 
-    /* Header block like screenshot */
+    /* HERO */
     .hero{
-  background: linear-gradient(135deg, rgba(245,158,11,.98), rgba(250,204,21,.96));
-  border-radius: 30px;
-  padding: 26px 22px;
-  box-shadow: var(--softShadow);
-  position: relative;
-  overflow:hidden;
-}
+      background: linear-gradient(135deg, rgba(245,158,11,.98), rgba(250,204,21,.96));
+      border-radius: 30px;
+      padding: 26px 22px;
+      box-shadow: var(--softShadow);
+      position: relative;
+      overflow:hidden;
+    }
 
     .hero::before{
       content:"";
-      position:absolute; inset:-80px -80px auto auto;
+      position:absolute;
+      inset:-80px -80px auto auto;
       width:240px; height:240px;
       background:
         radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 10px, transparent 11px),
@@ -74,6 +72,7 @@
       opacity:.35;
       transform: rotate(14deg);
       filter: blur(.2px);
+      pointer-events:none;
     }
 
     .topRow{
@@ -82,10 +81,7 @@
       justify-content:space-between;
       gap: 14px;
     }
-
-    .titleBlock{
-      min-width: 0;
-    }
+    .titleBlock{ min-width: 0; }
 
     .kicker{
       font-family:"Baloo 2", cursive;
@@ -94,8 +90,9 @@
       font-weight: 800;
       font-size: 13px;
       color: rgba(255,255,255,.90);
- text-shadow: 0 2px 12px rgba(0,0,0,.20);
+      text-shadow: 0 2px 12px rgba(0,0,0,.20);
     }
+
     .mainTitle{
       margin: 8px 0 6px;
       font-family:"Baloo 2", cursive;
@@ -103,66 +100,50 @@
       line-height: 1.05;
       color: #fff;
       font-weight: 800;
-text-shadow: 0 2px 10px rgba(0,0,0,.16);
+      text-shadow: 0 2px 10px rgba(0,0,0,.16);
     }
+
     .subTitle{
       margin:0;
       color: rgba(255,255,255,.88);
       font-weight: 700;
       font-size: 15px;
-text-shadow: 0 2px 10px rgba(0,0,0,.16);
+      text-shadow: 0 2px 10px rgba(0,0,0,.16);
     }
 
-   .logoWrap{
-  flex: 0 0 auto;
-  width: 76px;
-  height: 76px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.25);
-  box-shadow: 0 18px 50px rgba(0,0,0,.18);
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 6px;
-}
-
-.logoWrap::after{
-  content:"";
-  position:absolute;
-  inset: 0;
-  border-radius: 999px;
-  border: 2px solid rgba(255,255,255,.45);
-  pointer-events:none;
-}
-
-.logoImg{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 999px;
-  display:block;
-  background: rgba(255,255,255,.85);
-}
-    .logoInner{
-      width: 62px; height: 62px;
+    /* LOGO */
+    .logoWrap{
+      flex: 0 0 auto;
+      width: 76px;
+      height: 76px;
       border-radius: 999px;
-      background: rgba(255,255,255,.92);
-      display:grid;
-      place-items:center;
-      font-family:"Baloo 2", cursive;
-      font-weight: 900;
-      color: rgba(124,58,237,.95);
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6px;
     }
-    .logoSmall{
-      font-size: 12px;
-      line-height:1.1;
-      text-align:center;
-      padding: 0 6px;
+    .logoWrap::after{
+      content:"";
+      position:absolute;
+      inset: 0;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.45);
+      pointer-events:none;
+    }
+    .logoImg{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 999px;
+      display:block;
+      background: rgba(255,255,255,.85);
     }
 
-    /* Search like screenshot */
+    /* SEARCH */
     .searchWrap{
       margin-top: 18px;
       background: rgba(255,255,255,.95);
@@ -180,6 +161,7 @@ text-shadow: 0 2px 10px rgba(0,0,0,.16);
       display:grid; place-items:center;
       background: linear-gradient(135deg, rgba(124,58,237,.14), rgba(236,72,153,.14));
       font-size: 18px;
+      flex:0 0 auto;
     }
     .searchInput{
       width: 100%;
@@ -187,8 +169,9 @@ text-shadow: 0 2px 10px rgba(0,0,0,.16);
       outline: none;
       background: transparent;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       color: rgba(31,41,55,.90);
+      min-width: 0;
     }
     .chipBtn{
       border:none;
@@ -199,62 +182,55 @@ text-shadow: 0 2px 10px rgba(0,0,0,.16);
       background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(6,182,212,.18));
       color: rgba(31,41,55,.88);
       white-space: nowrap;
+      flex:0 0 auto;
     }
 
-    /* Grid like screenshot */
+    /* GRID */
     .grid{
       margin-top: 18px;
       display:grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
     }
-    @media (max-width: 760px){
-      .grid{ grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 420px){
-      .grid{ grid-template-columns: repeat(2, 1fr); }
-    }
 
     .dayCard{
-  background: rgba(255,255,255,.22);
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 22px;
-  padding: 12px 10px;
-  text-align:center;
-  color:#1f2937; /* tukar jadi gelap supaya kontras elok atas putih-kuning */
-  cursor:pointer;
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
-  user-select:none;
-  box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  position: relative;
-  overflow:hidden;
-  min-height: 88px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap: 2px;
-}
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 22px;
+      padding: 12px 10px;
+      text-align:center;
+      color:#1f2937;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      user-select:none;
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+      position: relative;
+      overflow:hidden;
+      min-height: 88px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap: 2px;
+    }
     .dayCard:hover{
       transform: translateY(-2px);
       box-shadow: 0 14px 38px rgba(0,0,0,.16);
       background: rgba(255,255,255,.20);
     }
-
     .dayLabel{
       font-family:"Baloo 2", cursive;
       font-weight: 800;
       letter-spacing: .06em;
       font-size: 12px;
-      opacity: .92;
-color: rgba(31,41,55,.70);
+      color: rgba(31,41,55,.70);
     }
     .dayNum{
       font-family:"Baloo 2", cursive;
       font-weight: 900;
       font-size: 34px;
       line-height: 1;
-color: rgba(31,41,55,.92);
+      color: rgba(31,41,55,.92);
     }
 
     .badgeDone{
@@ -290,7 +266,7 @@ color: rgba(31,41,55,.92);
       font-weight: 900;
     }
 
-    /* Modal */
+    /* MODAL */
     .modalOverlay{
       position: fixed;
       inset: 0;
@@ -311,14 +287,13 @@ color: rgba(31,41,55,.92);
       border: 1px solid rgba(31,41,55,.10);
       overflow:hidden;
     }
-
     .modalHeader{
-        padding: 16px 16px 12px;
-  background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(250,204,21,.16));
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap: 12px;
+      padding: 16px 16px 12px;
+      background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(250,204,21,.16));
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
     }
     .modalTitle{
       margin:0;
@@ -342,6 +317,7 @@ color: rgba(31,41,55,.92);
       background: rgba(31,41,55,.08);
       font-weight: 900;
       font-size: 18px;
+      flex:0 0 auto;
     }
 
     .modalBody{
@@ -349,9 +325,6 @@ color: rgba(31,41,55,.92);
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 12px;
-    }
-    @media (max-width: 760px){
-      .modalBody{ grid-template-columns:1fr; }
     }
 
     .paper{
@@ -367,7 +340,6 @@ color: rgba(31,41,55,.92);
       font-size: 16px;
       font-weight: 900;
     }
-
     .tazkirahText{
       color: rgba(31,41,55,.90);
       font-weight: 700;
@@ -386,7 +358,6 @@ color: rgba(31,41,55,.92);
       flex-direction:column;
       gap: 10px;
     }
-
     .task{
       background: rgba(255,255,255,.88);
       border: 1px solid rgba(31,41,55,.08);
@@ -444,214 +415,57 @@ color: rgba(31,41,55,.92);
       transform: translateX(-50%) translateY(-2px);
     }
 
-/* =========================
-   MOBILE FIX PACK (Override)
-   Paste paling bawah CSS
-   ========================= */
+    /* =========================
+       RESPONSIVE (Kemasan Mobile)
+       ========================= */
 
-/* Container lebih ketat di phone */
-.container{
-  padding: 16px 12px 28px;
-}
+    /* tablet dan bawah */
+    @media (max-width: 760px){
+      .container{ padding: 16px 12px 28px; }
+      .hero{ padding: 18px 14px; border-radius: 22px; }
 
-/* Hero lebih compact di phone */
-.hero{
-  border-radius: 22px;
-  padding: 18px 14px;
-}
+      .grid{ grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .modalBody{ grid-template-columns: 1fr; }
+    }
 
-/* Top row: pastikan title + logo tak “bertindih” */
-.topRow{
-  gap: 10px;
-  align-items: center;
-}
+    /* phone */
+    @media (max-width: 520px){
+      .kicker{ font-size: 10px; letter-spacing:.16em; }
+      .mainTitle{ font-size: 22px; line-height: 1.12; }
+      .subTitle{ font-size: 12px; }
 
-/* Tajuk & subtitle kecil sikit di phone */
-.kicker{
-  font-size: 11px;
-  letter-spacing: .18em;
-}
+      .logoWrap{ width: 52px; height: 52px; padding: 4px; }
 
-.mainTitle{
-  font-size: 26px;   /* fallback */
-  line-height: 1.08;
-}
+      /* search jadi kemas */
+      .searchWrap{ padding: 10px 10px; border-radius: 18px; gap: 8px; }
+      .searchIcon{ width: 32px; height: 32px; border-radius: 14px; font-size: 16px; }
+      .searchInput{ font-size: 14px; }
+      .chipBtn{ font-size: 12px; padding: 8px 10px; border-radius: 14px; }
 
-.subTitle{
-  font-size: 13px;
-  line-height: 1.25;
-}
+      /* grid 2 kolum */
+      .grid{ grid-template-columns: repeat(2, 1fr); }
 
-/* Logo: kecikkan untuk phone */
-.logoWrap{
-  width: 56px;
-  height: 56px;
-  padding: 4px;
-  box-shadow: 0 14px 34px rgba(0,0,0,.16);
-}
+      .dayCard{ min-height: 70px; border-radius: 16px; }
+      .dayNum{ font-size: 26px; }
+      .dayLabel{ font-size: 10px; }
 
-/* Search bar: bagi wrap cantik */
-.searchWrap{
-  margin-top: 14px;
-  padding: 10px 10px;
-  border-radius: 18px;
-  gap: 8px;
-}
+      /* modal */
+      .modal{ border-radius: 18px; }
+      .modalHeader{ padding: 14px 14px 10px; }
+      .modalTitle{ font-size: 18px; }
+      .modalSub{ font-size: 12px; }
+      .modalBody{ padding: 10px; gap: 10px; }
 
-.searchIcon{
-  width: 34px;
-  height: 34px;
-  border-radius: 14px;
-  font-size: 16px;
-}
+      /* buttons full width */
+      .btnRow{ flex-direction: column; }
+      .btn{ width: 100%; justify-content:center; }
+    }
 
-.searchInput{
-  font-size: 15px;
-  font-weight: 800;
-}
-
-/* Reset button jangan besar sangat */
-.chipBtn{
-  padding: 9px 10px;
-  border-radius: 14px;
-  font-size: 13px;
-}
-
-/* Grid: guna 3 kolum di phone, 2 kolum di phone kecil */
-.grid{
-  margin-top: 14px;
-  gap: 10px;
-}
-
-/* Card: kecilkan height & font */
-.dayCard{
-  min-height: 74px;
-  border-radius: 18px;
-  padding: 10px 8px;
-}
-
-.dayLabel{
-  font-size: 11px;
-}
-
-.dayNum{
-  font-size: 28px;
-}
-
-/* Footer pills: kecilkan */
-.footerHint{
-  margin-top: 12px;
-  gap: 8px;
-}
-
-.miniPill{
-  padding: 7px 9px;
-  font-size: 12px;
-}
-
-/* Modal: mobile friendly */
-.modal{
-  border-radius: 20px;
-}
-
-.modalHeader{
-  padding: 14px 14px 10px;
-}
-
-.modalTitle{
-  font-size: 18px;
-}
-
-.modalSub{
-  font-size: 12px;
-}
-
-/* Modal body: paksa 1 kolum untuk skrin kecil */
-.modalBody{
-  grid-template-columns: 1fr;
-  padding: 12px 12px 14px;
-  gap: 10px;
-}
-
-.paper, .sideCard{
-  border-radius: 18px;
-  padding: 12px;
-}
-
-.tazkirahText{
-  font-size: 14px;
-  line-height: 1.65;
-}
-
-/* Button row: bagi full width di phone */
-.btnRow{
-  flex-direction: column;
-}
-
-.btn{
-  width: 100%;
-  justify-content: center;
-  padding: 12px 12px;
-  border-radius: 16px;
-}
-
-/* Responsive rules (lebih tepat) */
-@media (max-width: 760px){
-  .grid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 420px){
-  .grid{ grid-template-columns: repeat(2, 1fr); }
-  .mainTitle{ font-size: 24px; }
-  .logoWrap{ width: 52px; height: 52px; }
-}
-
-/* Extra: kalau phone sangat kecil */
-@media (max-width: 360px){
-  .mainTitle{ font-size: 22px; }
-  .dayNum{ font-size: 26px; }
-}
-    /* === FORCE MOBILE OVERRIDE (paste paling bawah sebelum </style>) === */
-@media (max-width: 520px){
-  .container{ padding: 12px 10px 22px !important; }
-  .hero{ padding: 14px 12px !important; border-radius: 18px !important; }
-
-  .topRow{ align-items:flex-start !important; }
-  .kicker{ font-size: 10px !important; letter-spacing:.16em !important; }
-
-  .mainTitle{
-    font-size: 22px !important;
-    line-height: 1.12 !important;
-  }
-  .subTitle{ font-size: 12px !important; }
-
-  .logoWrap{
-    width: 48px !important;
-    height: 48px !important;
-    padding: 3px !important;
-  }
-
-  .searchWrap{
-    padding: 9px 9px !important;
-    border-radius: 16px !important;
-  }
-  .searchIcon{ width: 30px !important; height: 30px !important; font-size: 15px !important; }
-  .searchInput{ font-size: 14px !important; }
-  .chipBtn{ font-size: 12px !important; padding: 8px 9px !important; }
-
-  .grid{
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-
-  .dayCard{ min-height: 70px !important; border-radius: 16px !important; }
-  .dayNum{ font-size: 26px !important; }
-  .dayLabel{ font-size: 10px !important; }
-
-  .modal{ border-radius: 18px !important; }
-  .modalBody{ grid-template-columns: 1fr !important; padding: 10px !important; }
-  .btn{ width: 100% !important; justify-content:center !important; }
-}
+    /* phone sangat kecil */
+    @media (max-width: 360px){
+      .mainTitle{ font-size: 20px; }
+      .grid{ gap: 9px; }
+    }
   </style>
 </head>
 
@@ -665,15 +479,14 @@ color: rgba(31,41,55,.92);
           <p class="subTitle">Ramadhan 1446H • Versi Kanak-Kanak 🌙✨</p>
         </div>
 
-        <!-- Logo bulat -->
-      <div class="logoWrap" title="Masjid As-Siddiq, Bandar Seri Iskandar">
-  <img
-    src="logomasjid.jpeg"
-    alt="Logo Masjid As-Siddiq Bandar Seri Iskandar"
-    class="logoImg"
-    loading="lazy"
-  />
-</div>
+        <div class="logoWrap" title="Masjid As-Siddiq, Bandar Seri Iskandar">
+          <img
+            src="logomasjid.jpeg"
+            alt="Logo Masjid As-Siddiq Bandar Seri Iskandar"
+            class="logoImg"
+            loading="lazy"
+          />
+        </div>
       </div>
 
       <div class="searchWrap">
@@ -897,7 +710,6 @@ color: rgba(31,41,55,.92);
     const overlay = document.getElementById("modalOverlay");
     const closeBtn = document.getElementById("closeBtn");
     const modalTitle = document.getElementById("modalTitle");
-    const modalSub = document.getElementById("modalSub");
     const tazkirahText = document.getElementById("tazkirahText");
     const missionText = document.getElementById("missionText");
     const questionText = document.getElementById("questionText");
@@ -906,7 +718,6 @@ color: rgba(31,41,55,.92);
     const copyLinkBtn = document.getElementById("copyLinkBtn");
 
     const toast = document.getElementById("toast");
-
     let currentDay = 1;
 
     function showToast(msg){
@@ -920,9 +731,7 @@ color: rgba(31,41,55,.92);
       if(!item) return;
 
       currentDay = day;
-
       modalTitle.textContent = `Hari ${item.day}: ${item.title}`;
-      modalSub.textContent = `Tazkirah ringkas untuk anak-anak • Surau At-Taqwa CVR`;
       tazkirahText.textContent = item.tazkirah;
       missionText.textContent = item.mission;
       questionText.textContent = item.question;
@@ -936,7 +745,6 @@ color: rgba(31,41,55,.92);
     function closeModal(){
       overlay.classList.remove("open");
       document.body.style.overflow = "";
-      // keep hash as is (so link still meaningful)
     }
 
     function toggleDone(day){
@@ -953,7 +761,6 @@ color: rgba(31,41,55,.92);
       navigator.clipboard?.writeText(url).then(()=>{
         showToast("Link dicopy 🔗");
       }).catch(()=>{
-        // fallback
         const ta = document.createElement("textarea");
         ta.value = url;
         document.body.appendChild(ta);
@@ -968,13 +775,10 @@ color: rgba(31,41,55,.92);
       gridEl.innerHTML = "";
       const q = (query || "").trim().toLowerCase();
 
-      const filtered = DAYS.filter(d => {
+      const list = DAYS.filter(d => {
         if(!q) return true;
         return (d.title + " " + d.tazkirah).toLowerCase().includes(q);
       });
-
-      // If search used, show only matching days; else show all 30
-      const list = filtered;
 
       for(const d of list){
         const card = document.createElement("div");
@@ -983,7 +787,6 @@ color: rgba(31,41,55,.92);
         card.setAttribute("tabindex","0");
         card.setAttribute("aria-label", `Hari ${d.day}: ${d.title}`);
 
-        // change card tint subtly (still similar look)
         const tint = (d.day % 5);
         const bg = [
           "rgba(255,255,255,.16)",
@@ -1008,7 +811,6 @@ color: rgba(31,41,55,.92);
         gridEl.appendChild(card);
       }
 
-      // If nothing found
       if(list.length === 0){
         const empty = document.createElement("div");
         empty.style.gridColumn = "1 / -1";
@@ -1027,7 +829,6 @@ color: rgba(31,41,55,.92);
       }
     }
 
-    // Events
     searchEl.addEventListener("input", () => renderGrid(searchEl.value));
 
     resetBtn.addEventListener("click", ()=>{
@@ -1050,7 +851,6 @@ color: rgba(31,41,55,.92);
     markDoneBtn.addEventListener("click", ()=> toggleDone(currentDay));
     copyLinkBtn.addEventListener("click", ()=> copyLink(currentDay));
 
-    // Deep link: #hari-7
     function handleHash(){
       const h = (window.location.hash || "").trim();
       const m = h.match(/^#hari-(\d{1,2})$/);
@@ -1061,11 +861,9 @@ color: rgba(31,41,55,.92);
     }
     window.addEventListener("hashchange", handleHash);
 
-    // Init
     loadDone();
     renderGrid("");
     handleHash();
   </script>
 </body>
 </html>
-
