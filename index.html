@@ -2,36 +2,39 @@
 <html lang="ms">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
   <title>Tazkirah Ramadhan — Versi Kanak-Kanak</title>
   <meta name="description" content="Tazkirah Ramadan versi kanak-kanak: 30 hari, klik untuk baca tazkirah ringkas dan mudah." />
   <meta name="color-scheme" content="light only" />
 
-  <!-- Fonts -->
+  <!-- Cute readable font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
+      /* royal yellow, ceria tapi still premium */
       --bg:#fff7cc;       /* kuning lembut */
       --bg2:#fff1a3;      /* kuning ceria */
+
+      --card:#ffffff;
       --ink:#1f2937;
       --muted:#6b7280;
 
-      --brand:#f59e0b;    /* amber */
-      --brand2:#facc15;   /* yellow */
-      --accent:#fb7185;   /* kids pink */
-      --mint:#22c55e;
-      --sky:#06b6d4;
+      --brand:#f59e0b;    /* amber (kuning raja) */
+      --brand2:#facc15;   /* yellow terang */
+      --accent:#fb7185;   /* pink manja (kids) */
+      --mint:#22c55e;     /* hijau */
+      --sky:#06b6d4;      /* cyan */
 
       --softShadow: 0 18px 50px rgba(17,24,39,.14);
       --softShadow2: 0 10px 28px rgba(17,24,39,.12);
+      --radius: 26px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
+    *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+    html,body{ height:100%; }
     body{
       margin:0;
       color:var(--ink);
@@ -46,23 +49,21 @@
     .container{
       max-width: 920px;
       margin: 0 auto;
-      padding: 26px 18px 40px;
+      padding: 22px 16px 40px;
     }
 
-    /* HERO */
+    /* Header block */
     .hero{
       background: linear-gradient(135deg, rgba(245,158,11,.98), rgba(250,204,21,.96));
       border-radius: 30px;
-      padding: 26px 22px;
+      padding: 22px 18px;
       box-shadow: var(--softShadow);
       position: relative;
       overflow:hidden;
     }
-
     .hero::before{
       content:"";
-      position:absolute;
-      inset:-80px -80px auto auto;
+      position:absolute; inset:-80px -80px auto auto;
       width:240px; height:240px;
       background:
         radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 0 10px, transparent 11px),
@@ -79,9 +80,10 @@
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap: 14px;
+      gap: 12px;
     }
-    .titleBlock{ min-width: 0; }
+
+    .titleBlock{ min-width:0; }
 
     .kicker{
       font-family:"Baloo 2", cursive;
@@ -92,17 +94,15 @@
       color: rgba(255,255,255,.90);
       text-shadow: 0 2px 12px rgba(0,0,0,.20);
     }
-
     .mainTitle{
       margin: 8px 0 6px;
       font-family:"Baloo 2", cursive;
-      font-size: clamp(28px, 4.2vw, 44px);
+      font-size: clamp(26px, 4.2vw, 44px);
       line-height: 1.05;
       color: #fff;
       font-weight: 800;
       text-shadow: 0 2px 10px rgba(0,0,0,.16);
     }
-
     .subTitle{
       margin:0;
       color: rgba(255,255,255,.88);
@@ -111,7 +111,7 @@
       text-shadow: 0 2px 10px rgba(0,0,0,.16);
     }
 
-    /* LOGO */
+    /* Logo */
     .logoWrap{
       flex: 0 0 auto;
       width: 76px;
@@ -143,9 +143,9 @@
       background: rgba(255,255,255,.85);
     }
 
-    /* SEARCH */
+    /* Search */
     .searchWrap{
-      margin-top: 18px;
+      margin-top: 16px;
       background: rgba(255,255,255,.95);
       border-radius: 22px;
       padding: 12px 14px;
@@ -161,7 +161,7 @@
       display:grid; place-items:center;
       background: linear-gradient(135deg, rgba(124,58,237,.14), rgba(236,72,153,.14));
       font-size: 18px;
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
     .searchInput{
       width: 100%;
@@ -170,7 +170,7 @@
       background: transparent;
       font-size: 16px;
       font-weight: 800;
-      color: rgba(31,41,55,.90);
+      color: rgba(31,41,55,.92);
       min-width: 0;
     }
     .chipBtn{
@@ -182,14 +182,14 @@
       background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(6,182,212,.18));
       color: rgba(31,41,55,.88);
       white-space: nowrap;
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
 
-    /* GRID */
+    /* GRID: USTAZ NAK 5 KOLUM SENTIASA (MACAM GAMBAR) */
     .grid{
-      margin-top: 18px;
+      margin-top: 16px;
       display:grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -218,11 +218,13 @@
       box-shadow: 0 14px 38px rgba(0,0,0,.16);
       background: rgba(255,255,255,.20);
     }
+
     .dayLabel{
       font-family:"Baloo 2", cursive;
       font-weight: 800;
       letter-spacing: .06em;
       font-size: 12px;
+      opacity: .92;
       color: rgba(31,41,55,.70);
     }
     .dayNum{
@@ -250,8 +252,8 @@
 
     .footerHint{
       margin-top: 14px;
-      color: rgba(255,255,255,.90);
-      font-weight: 700;
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
       font-size: 13px;
       display:flex;
       gap:10px;
@@ -266,16 +268,25 @@
       font-weight: 900;
     }
 
-    /* MODAL */
+    /* =========================
+       MODAL (POPUP) FIX:
+       - boleh scroll dalam popup
+       - tak bertindih
+       - header kekal, body scroll
+       ========================= */
     .modalOverlay{
       position: fixed;
       inset: 0;
       background: rgba(17,24,39,.55);
       display:none;
-      align-items:center;
-      justify-content:center;
       padding: 16px;
       z-index: 9999;
+
+      /* ini penting untuk mobile */
+      overflow: auto;                 /* overlay boleh scroll kalau modal tinggi */
+      -webkit-overflow-scrolling: touch;
+      align-items: flex-start;        /* start atas, senang scroll */
+      justify-content:center;
     }
     .modalOverlay.open{ display:flex; }
 
@@ -286,7 +297,13 @@
       box-shadow: 0 30px 90px rgba(0,0,0,.25);
       border: 1px solid rgba(31,41,55,.10);
       overflow:hidden;
+
+      /* penting: hadkan tinggi ikut skrin */
+      max-height: calc(100dvh - 32px);
+      display:flex;
+      flex-direction: column;
     }
+
     .modalHeader{
       padding: 16px 16px 12px;
       background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(250,204,21,.16));
@@ -294,6 +311,7 @@
       align-items:flex-start;
       justify-content:space-between;
       gap: 12px;
+      flex: 0 0 auto;
     }
     .modalTitle{
       margin:0;
@@ -317,15 +335,22 @@
       background: rgba(31,41,55,.08);
       font-weight: 900;
       font-size: 18px;
-      flex:0 0 auto;
+      flex: 0 0 auto;
     }
 
+    /* body scroll di dalam modal */
     .modalBody{
-      padding-top: 14px !important;  /* bagi jarak dari header */
       padding: 14px 16px 16px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 12px;
+
+      overflow: auto;                 /* INI FIX SCROLL */
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      flex: 1 1 auto;
+      min-height: 0;                  /* penting utk grid+scroll */
+      background: rgba(255,255,255,.96); /* elak nampak “tertindih” */
     }
 
     .paper{
@@ -341,6 +366,7 @@
       font-size: 16px;
       font-weight: 900;
     }
+
     .tazkirahText{
       color: rgba(31,41,55,.90);
       font-weight: 700;
@@ -359,6 +385,7 @@
       flex-direction:column;
       gap: 10px;
     }
+
     .task{
       background: rgba(255,255,255,.88);
       border: 1px solid rgba(31,41,55,.08);
@@ -417,97 +444,52 @@
     }
 
     /* =========================
-       RESPONSIVE (Kemasan Mobile)
+       MOBILE TUNING
+       - kekalkan 5 kolum
+       - kecilkan card + header
        ========================= */
-
-    /* tablet dan bawah */
-    @media (max-width: 760px){
-      .container{ padding: 16px 12px 28px; }
-      .hero{ padding: 18px 14px; border-radius: 22px; }
-
-      .grid{ grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .modalBody{ grid-template-columns: 1fr; }
-    }
-
-    /* phone */
     @media (max-width: 520px){
-      .kicker{ font-size: 10px; letter-spacing:.16em; }
+      .container{ padding: 12px 10px 22px; }
+      .hero{ border-radius: 20px; padding: 16px 12px; }
+
+      .kicker{ font-size: 10px; letter-spacing: .16em; }
       .mainTitle{ font-size: 22px; line-height: 1.12; }
       .subTitle{ font-size: 12px; }
 
       .logoWrap{ width: 52px; height: 52px; padding: 4px; }
 
-      /* search jadi kemas */
-      .searchWrap{ padding: 10px 10px; border-radius: 18px; gap: 8px; }
+      .searchWrap{ margin-top: 12px; padding: 10px 10px; border-radius: 18px; gap: 8px; }
       .searchIcon{ width: 32px; height: 32px; border-radius: 14px; font-size: 16px; }
       .searchInput{ font-size: 14px; }
       .chipBtn{ font-size: 12px; padding: 8px 10px; border-radius: 14px; }
 
-      /* grid 2 kolum */
-      .grid{ grid-template-columns: repeat(2, 1fr); }
-
-      .dayCard{ min-height: 70px; border-radius: 16px; }
-      .dayNum{ font-size: 26px; }
+      /* 5 kolum tetap — kecilkan kad */
+      .grid{ gap: 10px; }
+      .dayCard{ min-height: 64px; border-radius: 18px; padding: 10px 6px; }
       .dayLabel{ font-size: 10px; }
+      .dayNum{ font-size: 22px; }
 
-      /* modal */
-      .modal{ border-radius: 18px; }
+      /* modal jadi 1 kolum di phone */
       .modalHeader{ padding: 14px 14px 10px; }
       .modalTitle{ font-size: 18px; }
       .modalSub{ font-size: 12px; }
-      .modalBody{ padding: 10px; gap: 10px; }
+      .modalBody{
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 10px;
+      }
+      .paper, .sideCard{ border-radius: 18px; padding: 12px; }
+      .tazkirahText{ font-size: 14px; line-height: 1.65; }
 
-      /* buttons full width */
       .btnRow{ flex-direction: column; }
-      .btn{ width: 100%; justify-content:center; }
+      .btn{ width: 100%; justify-content: center; }
     }
 
-    /* phone sangat kecil */
-    @media (max-width: 360px){
-      .mainTitle{ font-size: 20px; }
-      .grid{ gap: 9px; }
+    @media (max-width: 380px){
+      .dayCard{ min-height: 58px; padding: 9px 5px; }
+      .dayNum{ font-size: 20px; }
+      .grid{ gap: 8px; }
     }
-    /* ===== FIX: POPUP (MODAL) BOLEH SCROLL DI PHONE ===== */
-
-.modalOverlay{
-  height: 100dvh;
-  padding: 12px !important;
-}
-
-/* Jadikan modal ikut viewport dan boleh “shrink” */
-.modal{
-  max-height: 92dvh !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Header kekal atas */
-.modalHeader{
-  flex: 0 0 auto !important;
-  position: sticky;
-  top: 0;
-  z-index: 20 !important;
-
-  /* tambah ini */
-  background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(250,204,21,.20)) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.12);
-}
-
-/* INI KUNCI UTAMA: body modal jadi scroll */
-.modalBody{
-  flex: 1 1 auto !important;
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-  min-height: 0 !important; /* penting untuk flex scroll */
-}
-
-/* elak kad dalam modal memaksa tinggi */
-.paper, .sideCard{
-  min-height: 0 !important;
-}
   </style>
 </head>
 
@@ -521,6 +503,7 @@
           <p class="subTitle">Ramadhan 1446H • Versi Kanak-Kanak 🌙✨</p>
         </div>
 
+        <!-- Logo bulat -->
         <div class="logoWrap" title="Masjid As-Siddiq, Bandar Seri Iskandar">
           <img
             src="logomasjid.jpeg"
@@ -691,9 +674,9 @@
     }
 
     // =============================
-    // Progress storage
+    // Progress storage (LS/cookie safe)
     // =============================
-    const KEY = "tazkirah_ramadhan_kids_done_v1";
+    const KEY = "tazkirah_ramadhan_kids_done_v2";
     const StorageSafe = (() => {
       function canUseLocalStorage(){
         try{
@@ -752,6 +735,7 @@
     const overlay = document.getElementById("modalOverlay");
     const closeBtn = document.getElementById("closeBtn");
     const modalTitle = document.getElementById("modalTitle");
+    const modalSub = document.getElementById("modalSub");
     const tazkirahText = document.getElementById("tazkirahText");
     const missionText = document.getElementById("missionText");
     const questionText = document.getElementById("questionText");
@@ -768,27 +752,45 @@
       setTimeout(()=> toast.classList.remove("show"), 1400);
     }
 
+    function lockBodyScroll(lock){
+      // lock background scroll tapi modal masih boleh scroll (overlay + modalBody)
+      if(lock){
+        document.body.style.overflow = "hidden";
+        document.body.style.touchAction = "none";
+      }else{
+        document.body.style.overflow = "";
+        document.body.style.touchAction = "";
+      }
+    }
+
     function openModal(day){
       const item = DAYS.find(x => x.day === day);
       if(!item) return;
 
       currentDay = day;
       modalTitle.textContent = `Hari ${item.day}: ${item.title}`;
+      modalSub.textContent = `Tazkirah ringkas untuk anak-anak • Versi Kanak-Kanak`;
       tazkirahText.textContent = item.tazkirah;
       missionText.textContent = item.mission;
       questionText.textContent = item.question;
       parentTipText.textContent = item.parentTip;
 
-     overlay.classList.add("open");
-document.body.style.overflow = "hidden";
-overlay.style.overflow = "hidden";
-document.getElementById("modalOverlay").scrollTop = 0;
-window.location.hash = `hari-${day}`;
+      overlay.classList.add("open");
+      lockBodyScroll(true);
+
+      // deep link
+      window.location.hash = `hari-${day}`;
+
+      // pastikan scroll modal bermula di atas
+      const body = overlay.querySelector(".modalBody");
+      if(body) body.scrollTop = 0;
+      overlay.scrollTop = 0;
     }
 
     function closeModal(){
       overlay.classList.remove("open");
-      document.body.style.overflow = "";
+      lockBodyScroll(false);
+      // hash kekal supaya link masih boleh share
     }
 
     function toggleDone(day){
@@ -802,17 +804,17 @@ window.location.hash = `hari-${day}`;
     function copyLink(day){
       const base = window.location.origin + window.location.pathname;
       const url = `${base}#hari-${day}`;
-      navigator.clipboard?.writeText(url).then(()=>{
-        showToast("Link dicopy 🔗");
-      }).catch(()=>{
-        const ta = document.createElement("textarea");
-        ta.value = url;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        showToast("Link dicopy 🔗");
-      });
+      (navigator.clipboard?.writeText(url) || Promise.reject())
+        .then(()=> showToast("Link dicopy 🔗"))
+        .catch(()=>{
+          const ta = document.createElement("textarea");
+          ta.value = url;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+          showToast("Link dicopy 🔗");
+        });
     }
 
     function renderGrid(query=""){
@@ -873,6 +875,7 @@ window.location.hash = `hari-${day}`;
       }
     }
 
+    // Events
     searchEl.addEventListener("input", () => renderGrid(searchEl.value));
 
     resetBtn.addEventListener("click", ()=>{
@@ -885,16 +888,23 @@ window.location.hash = `hari-${day}`;
     });
 
     closeBtn.addEventListener("click", closeModal);
+
+    // klik luar modal untuk tutup
     overlay.addEventListener("click", (e)=>{
+      const modal = overlay.querySelector(".modal");
+      if(!modal) return;
       if(e.target === overlay) closeModal();
     });
+
+    // ESC untuk tutup
     window.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape") closeModal();
+      if(e.key === "Escape" && overlay.classList.contains("open")) closeModal();
     });
 
     markDoneBtn.addEventListener("click", ()=> toggleDone(currentDay));
     copyLinkBtn.addEventListener("click", ()=> copyLink(currentDay));
 
+    // Deep link: #hari-7
     function handleHash(){
       const h = (window.location.hash || "").trim();
       const m = h.match(/^#hari-(\d{1,2})$/);
@@ -905,11 +915,10 @@ window.location.hash = `hari-${day}`;
     }
     window.addEventListener("hashchange", handleHash);
 
+    // Init
     loadDone();
     renderGrid("");
     handleHash();
   </script>
 </body>
 </html>
-
-
