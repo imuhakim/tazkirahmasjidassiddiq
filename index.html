@@ -611,6 +611,47 @@ color: rgba(31,41,55,.92);
   .mainTitle{ font-size: 22px; }
   .dayNum{ font-size: 26px; }
 }
+    /* === FORCE MOBILE OVERRIDE (paste paling bawah sebelum </style>) === */
+@media (max-width: 520px){
+  .container{ padding: 12px 10px 22px !important; }
+  .hero{ padding: 14px 12px !important; border-radius: 18px !important; }
+
+  .topRow{ align-items:flex-start !important; }
+  .kicker{ font-size: 10px !important; letter-spacing:.16em !important; }
+
+  .mainTitle{
+    font-size: 22px !important;
+    line-height: 1.12 !important;
+  }
+  .subTitle{ font-size: 12px !important; }
+
+  .logoWrap{
+    width: 48px !important;
+    height: 48px !important;
+    padding: 3px !important;
+  }
+
+  .searchWrap{
+    padding: 9px 9px !important;
+    border-radius: 16px !important;
+  }
+  .searchIcon{ width: 30px !important; height: 30px !important; font-size: 15px !important; }
+  .searchInput{ font-size: 14px !important; }
+  .chipBtn{ font-size: 12px !important; padding: 8px 9px !important; }
+
+  .grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .dayCard{ min-height: 70px !important; border-radius: 16px !important; }
+  .dayNum{ font-size: 26px !important; }
+  .dayLabel{ font-size: 10px !important; }
+
+  .modal{ border-radius: 18px !important; }
+  .modalBody{ grid-template-columns: 1fr !important; padding: 10px !important; }
+  .btn{ width: 100% !important; justify-content:center !important; }
+}
   </style>
 </head>
 
@@ -1027,3 +1068,4 @@ color: rgba(31,41,55,.92);
   </script>
 </body>
 </html>
+
