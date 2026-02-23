@@ -321,6 +321,7 @@
     }
 
     .modalBody{
+      padding-top: 14px !important;  /* bagi jarak dari header */
       padding: 14px 16px 16px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -485,7 +486,13 @@
   flex: 0 0 auto !important;
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 20 !important;
+
+  /* tambah ini */
+  background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(250,204,21,.20)) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
 }
 
 /* INI KUNCI UTAMA: body modal jadi scroll */
@@ -904,4 +911,5 @@ window.location.hash = `hari-${day}`;
   </script>
 </body>
 </html>
+
 
