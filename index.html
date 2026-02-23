@@ -578,14 +578,266 @@
     // =============================
     // DATA: 30 Hari (Ustaz boleh edit tajuk & teks)
     // =============================
-    const DAYS = Array.from({length: 30}, (_, i) => i + 1).map(day => ({
-      day,
-      title: defaultTitle(day),
-      tazkirah: defaultTazkirah(day),
-      mission: defaultMission(day),
-      question: defaultQuestion(day),
-      parentTip: defaultParentTip(day),
-    }));
+const TITLES = [
+"Ramadan: Misi Ikhlas",
+"Puasa Superhero",
+"Mulut Pun Puasa",
+"Hati Lembut",
+"Sedekah Kecil, Pahala Besar",
+"Sabar Level Up",
+"Solat On Time",
+"Quran Sahabat Kita",
+"Adab Dengan Mak Ayah",
+"Doa Senjata Mukmin",
+"Jaga Mata & Telinga",
+"Kawan Baik Tarik Syurga",
+"Surah Al-Fatihah Hebat",
+"Al-Ikhlas: Allah Satu",
+"Al-Falaq: Minta Perlindungan",
+"An-Nas: Allah Pelindung Hati",
+"Berani Minta Maaf",
+"Tolong Tanpa Disuruh",
+"Syukur Setiap Hari",
+"Jangan Mengata",
+"Hero Senyap-Senyap",
+"Tadarus 5 Minit",
+"Jaga Amanah",
+"Senyum Itu Sedekah",
+"Lailatul Qadar Istimewa",
+"Doa Untuk Palestin & Ummah",
+"Puasa Hati",
+"Jangan Putus Asa",
+"Maafkan Orang",
+"Ramadan Selepas Ramadan"
+];
+
+const TAZKIRAH = [
+`Ramadan ni misi khas daripada Allah.
+Kita jadi superhero sebenar.
+Bukan pakai jubah terbang.
+Tapi pakai hati yang ikhlas.
+Kalau buat baik sebab Allah, pahala jadi besar.
+Walaupun orang tak nampak.
+✨ Allah nampak semuanya.`,
+
+`Puasa bukan sekadar tak makan.
+Puasa ajar kita tahan marah.
+Tahan mengeluh.
+Tahan malas.
+Itu kuasa sebenar.
+✨ Superhero sebenar kuat kawal diri.`,
+
+`Bila puasa, mulut pun kena puasa.
+Jangan menjerit.
+Jangan mengata.
+Jangan tipu.
+Kalau tersilap, cepat istighfar.
+✨ Mulut baik, hati jadi bersih.`,
+
+`Hati lembut mudah masuk syurga.
+Kalau ada orang sakiti kita,
+jangan cepat marah.
+Tarik nafas.
+Senyum.
+✨ Allah suka orang penyabar.`,
+
+`Sedekah tak perlu banyak.
+Seringgit pun boleh.
+Air pun boleh.
+Doa pun boleh.
+✨ Allah gandakan pahala orang yang memberi.`,
+
+`Sabar itu power.
+Bila lapar, sabar.
+Bila penat, sabar.
+Bila marah, sabar.
+✨ Sabar buat kita naik level.`,
+
+`Solat macam recharge bateri.
+Kalau tak solat,
+hati cepat letih.
+Solat awal waktu,
+Allah jaga kita.`,
+    
+`Quran bukan buku biasa.
+Dia cahaya.
+Bila baca sikit pun,
+Allah kira pahala.
+✨ 1 huruf = 10 pahala.`,
+
+`Mak ayah penat cari rezeki.
+Tolong mereka walau kecil.
+Susun kasut pun pahala.
+✨ Syurga bawah redha ibu.`,
+
+`Doa itu senjata.
+Doa boleh ubah hati.
+Doa boleh ubah dunia.
+✨ Allah dengar walau perlahan.`,
+
+`Jaga mata dari benda tak baik.
+Jaga telinga dari gosip.
+✨ Hati jadi bersih bila kita jaga deria.`,
+
+`Kawan baik ajak solat.
+Kawan baik ajak baca Quran.
+Pilih kawan yang tarik kita ke syurga.`,
+
+`Al-Fatihah surah paling hebat.
+Kita baca tiap solat.
+Minta Allah tunjuk jalan lurus.`,
+
+`Surah Al-Ikhlas ajar kita:
+Allah satu.
+Tak ada dua.
+Tak ada sama macam Dia.`,
+
+`Surah Al-Falaq ajar kita minta perlindungan.
+Daripada gelap.
+Daripada hasad.
+Daripada kejahatan.`,
+
+`Surah An-Nas ajar kita minta Allah jaga hati.
+Supaya tak ikut bisikan jahat.`,
+
+`Kalau buat salah,
+cepat minta maaf.
+Orang kuat bukan yang menang.
+Tapi yang berani minta maaf.`,
+
+`Tolong orang tanpa disuruh.
+Itu tanda hati baik.`,
+
+`Syukur bila dapat makanan.
+Syukur bila sihat.
+Syukur bila ada keluarga.`,
+
+`Jangan mengata orang.
+Kalau tak suka,
+diam lebih baik.`,
+
+`Buat baik tanpa orang tahu.
+Itu paling hebat.`,
+
+`Tadarus tak perlu lama.
+5 minit pun jadi.
+Yang penting konsisten.`,
+
+`Amanah bermaksud jaga barang.
+Jaga janji.
+Jaga solat.`,
+
+`Senyum pun sedekah.
+Senyum buat orang rasa tenang.`,
+
+`10 malam terakhir sangat istimewa.
+Ada malam lebih baik dari 1000 bulan.`,
+
+`Doakan saudara kita di Palestin.
+Doakan orang susah.
+Doa anak kecil sangat kuat.`,
+
+`Puasa hati bermaksud tak dengki.
+Tak sombong.
+Tak benci.`,
+
+`Kalau terlepas solat,
+jangan putus asa.
+Cepat qada dan baiki.`,
+
+`Maafkan orang sebelum tidur.
+Hati jadi ringan.`,
+
+`Ramadan bukan habis bila Syawal.
+Kebaikan kena teruskan.`];
+
+const MISSIONS = [
+"Buat satu amalan kerana Allah sahaja.",
+"Tahan marah hari ini.",
+"Cakap baik sahaja sepanjang hari.",
+"Senyum bila marah datang.",
+"Sedekah walau sedikit.",
+"Sabar bila diuji.",
+"Solat awal waktu.",
+"Baca 3 ayat Quran.",
+"Tolong mak ayah tanpa disuruh.",
+"Doa untuk keluarga.",
+"Elak tengok benda tak elok.",
+"Ajak kawan solat.",
+"Baca Al-Fatihah dengan faham.",
+"Hafal Surah Al-Ikhlas.",
+"Baca Al-Falaq sebelum tidur.",
+"Baca An-Nas sebelum tidur.",
+"Minta maaf pada seseorang.",
+"Tolong satu orang hari ini.",
+"Sebut 3 perkara yang disyukuri.",
+"Diam bila nak mengata.",
+"Buat baik tanpa cerita pada orang.",
+"Tadarus 5 minit.",
+"Jaga janji hari ini.",
+"Senyum pada 5 orang.",
+"Bangun qiyam walau 2 rakaat.",
+"Doa untuk ummah.",
+"Buang rasa dengki.",
+"Baiki satu kesilapan.",
+"Maafkan seseorang.",
+"Teruskan satu amalan selepas Ramadan."
+];
+
+const QUESTIONS = [
+"Adik buat baik sebab siapa?",
+"Apa yang paling susah bila puasa?",
+"Bila adik nak marah, apa patut buat?",
+"Macam mana nak lembutkan hati?",
+"Apa yang adik boleh sedekahkan?",
+"Kenapa sabar itu penting?",
+"Kenapa solat awal waktu bagus?",
+"Berapa pahala 1 huruf Quran?",
+"Kenapa kita kena hormat mak ayah?",
+"Apa doa adik hari ni?",
+"Apa jadi kalau mata tak dijaga?",
+"Macam mana pilih kawan baik?",
+"Apa maksud jalan lurus?",
+"Siapa Allah?",
+"Apa maksud perlindungan?",
+"Kenapa hati perlu dijaga?",
+"Kenapa minta maaf itu berani?",
+"Kenapa tolong orang itu baik?",
+"Apa nikmat hari ini?",
+"Apa jadi kalau suka mengata?",
+"Kenapa buat baik senyap-senyap?",
+"Kenapa baca Quran sikit tapi konsisten bagus?",
+"Apa maksud amanah?",
+"Kenapa senyum pahala?",
+"Apa istimewa Lailatul Qadar?",
+"Siapa yang adik nak doakan?",
+"Apa maksud puasa hati?",
+"Apa nak buat bila tersilap?",
+"Kenapa maafkan orang itu penting?",
+"Apa amalan nak teruskan selepas Ramadan?"
+];
+
+const PARENT_TIPS = [
+"Puji usaha kecil anak.",
+"Beri pilihan supaya anak rasa dihargai.",
+"Jangan panjang sangat, 1 minit cukup.",
+"Jangan banding dengan anak lain.",
+"Buat sama-sama dengan anak.",
+"Ulang mesej yang sama dengan lembut.",
+"Fokus konsisten, bukan sempurna.",
+"Tanya anak balik untuk faham.",
+"Peluk anak selepas tazkirah.",
+"Jangan marah jika anak lupa."
+];
+
+const DAYS = Array.from({length: 30}, (_, i) => ({
+  day: i + 1,
+  title: TITLES[i],
+  tazkirah: TAZKIRAH[i],
+  mission: MISSIONS[i],
+  question: QUESTIONS[i],
+  parentTip: PARENT_TIPS[i % PARENT_TIPS.length],
+}));
 
     function defaultTitle(day){
       const titles = [
@@ -922,3 +1174,4 @@
   </script>
 </body>
 </html>
+
