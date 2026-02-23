@@ -2,7 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
   <title>Tazkirah Ramadhan — Versi Kanak-Kanak</title>
   <meta name="description" content="Tazkirah Ramadan versi kanak-kanak: 30 hari, klik untuk baca tazkirah ringkas dan mudah." />
   <meta name="color-scheme" content="light only" />
@@ -443,6 +443,174 @@ color: rgba(31,41,55,.92);
       opacity:1;
       transform: translateX(-50%) translateY(-2px);
     }
+
+/* =========================
+   MOBILE FIX PACK (Override)
+   Paste paling bawah CSS
+   ========================= */
+
+/* Container lebih ketat di phone */
+.container{
+  padding: 16px 12px 28px;
+}
+
+/* Hero lebih compact di phone */
+.hero{
+  border-radius: 22px;
+  padding: 18px 14px;
+}
+
+/* Top row: pastikan title + logo tak “bertindih” */
+.topRow{
+  gap: 10px;
+  align-items: center;
+}
+
+/* Tajuk & subtitle kecil sikit di phone */
+.kicker{
+  font-size: 11px;
+  letter-spacing: .18em;
+}
+
+.mainTitle{
+  font-size: 26px;   /* fallback */
+  line-height: 1.08;
+}
+
+.subTitle{
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+/* Logo: kecikkan untuk phone */
+.logoWrap{
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.16);
+}
+
+/* Search bar: bagi wrap cantik */
+.searchWrap{
+  margin-top: 14px;
+  padding: 10px 10px;
+  border-radius: 18px;
+  gap: 8px;
+}
+
+.searchIcon{
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+.searchInput{
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* Reset button jangan besar sangat */
+.chipBtn{
+  padding: 9px 10px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+/* Grid: guna 3 kolum di phone, 2 kolum di phone kecil */
+.grid{
+  margin-top: 14px;
+  gap: 10px;
+}
+
+/* Card: kecilkan height & font */
+.dayCard{
+  min-height: 74px;
+  border-radius: 18px;
+  padding: 10px 8px;
+}
+
+.dayLabel{
+  font-size: 11px;
+}
+
+.dayNum{
+  font-size: 28px;
+}
+
+/* Footer pills: kecilkan */
+.footerHint{
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.miniPill{
+  padding: 7px 9px;
+  font-size: 12px;
+}
+
+/* Modal: mobile friendly */
+.modal{
+  border-radius: 20px;
+}
+
+.modalHeader{
+  padding: 14px 14px 10px;
+}
+
+.modalTitle{
+  font-size: 18px;
+}
+
+.modalSub{
+  font-size: 12px;
+}
+
+/* Modal body: paksa 1 kolum untuk skrin kecil */
+.modalBody{
+  grid-template-columns: 1fr;
+  padding: 12px 12px 14px;
+  gap: 10px;
+}
+
+.paper, .sideCard{
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.tazkirahText{
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Button row: bagi full width di phone */
+.btnRow{
+  flex-direction: column;
+}
+
+.btn{
+  width: 100%;
+  justify-content: center;
+  padding: 12px 12px;
+  border-radius: 16px;
+}
+
+/* Responsive rules (lebih tepat) */
+@media (max-width: 760px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 420px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+  .mainTitle{ font-size: 24px; }
+  .logoWrap{ width: 52px; height: 52px; }
+}
+
+/* Extra: kalau phone sangat kecil */
+@media (max-width: 360px){
+  .mainTitle{ font-size: 22px; }
+  .dayNum{ font-size: 26px; }
+}
   </style>
 </head>
 
