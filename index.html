@@ -558,18 +558,74 @@
     // - mission/question/parentTip: side card
     // ======================================================
 
-    const DEFAULT_BASE =
-`Adik sayang, Ramadan ni macam “bulan latihan superhero”.
-Kita bukan latihan kuat badan saja, tapi latihan kuat hati.
+   function buildDailyIntro(day){
+  const openings = [
+`Adik sayang, Ramadan ni macam “kem latihan hati”.
+Bukan latihan kuat badan saja, tapi latihan jadi anak yang Allah sayang.`,
 
-1) Bila kita puasa, Allah ajar kita sabar.
-2) Bila kita tahan marah, Allah sayang.
-3) Bila kita buat baik walau kecil, pahala besar.
+`Adik hebat, Ramadan ni macam “misi rahsia”.
+Setiap hari ada satu latihan kecil untuk naikkan pahala.`,
 
-Ingat ya: Allah tengok usaha, bukan tunggu kita perfect.
+`Adik comel, Ramadan ni macam “school of iman”.
+Hari-hari kita upgrade sikit-sikit sampai hati makin kuat.`,
+
+`Adik sayang, Ramadan ni macam “game level pahala”.
+Setiap level ada cabaran—kita menang bila kita sabar dan jaga adab.`,
+
+`Adik, Ramadan ni macam “taman hati”.
+Kita siram dengan sabar, Quran, dan kebaikan kecil.`,
+
+`Adik, Ramadan ni bukan sekadar lapar.
+Ia latihan jadi manusia yang lembut, sopan, dan kuat dengan Allah.`
+  ];
+
+  const lessons = [
+`1) Bila kita tahan lapar, kita belajar disiplin.
+2) Bila kita jaga lidah, hati jadi bersih.
+3) Bila kita buat baik walau kecil, Allah gandakan.`,
+
+`1) Bila kita puasa, Allah ajar sabar.
+2) Bila kita tahan marah, kita menang besar.
+3) Bila kita tolong orang, pahala naik.`,
+
+`1) Bila kita ingat Allah, hati jadi tenang.
+2) Bila kita jaga solat, hidup jadi teratur.
+3) Bila kita maafkan orang, hati jadi ringan.`,
+
+`1) Bila kita sedekah kecil, Allah suka.
+2) Bila kita baca Quran walau sekejap, pahala jalan.
+3) Bila kita jaga adab, Allah tambah berkat.`
+  ];
+
+  const closings = [
+`Ingat ya: Allah tengok usaha, bukan tunggu kita perfect.
 Hari ni, kita buat satu kebaikan kecil tapi konsisten.
 
-✨ “Kebaikan kecil + istiqamah = jadi hebat.”`;
+✨ “Sikit-sikit, lama-lama jadi hebat.”`,
+
+`Allah sayang orang yang cuba lagi dan lagi.
+Hari ni kita fokus satu benda baik saja.
+
+✨ “Kecil tapi istiqamah = menang.”`,
+
+`Tak perlu jadi sempurna. Kita jadi lebih baik dari semalam.
+Satu amalan kecil pun Allah hargai.
+
+✨ “Hari ni lebih baik.”`,
+
+`Bila hati kita jaga, Ramadan jadi manis.
+Jom buat satu perkara baik hari ni.
+
+✨ “Hati baik, hidup baik.”`
+  ];
+
+  // Rotate ikut hari (supaya auto berbeza)
+  const o = openings[(day-1) % openings.length];
+  const l = lessons[(day-1) % lessons.length];
+  const c = closings[(day-1) % closings.length];
+
+  return `${o}\n\n${l}\n\n${c}`;
+}
 
     // Helper untuk buat text body yang "smooth" (tak repeat)
     function buildBody(item){
@@ -596,7 +652,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 1
       {
         title: "Ramadan: Misi Ikhlas",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(1),
         story: "Seorang budak pernah ditanya, “Kenapa kamu puasa?” Dia jawab, “Sebab Allah suruh, dan Allah nampak walau orang tak nampak.” Itulah ikhlas.",
         points: [
           "Ikhlas = buat kerana Allah, bukan sebab pujian orang",
@@ -614,7 +670,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 2
       {
         title: "Puasa Superhero",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(2),
         story: "Ada anak hampir marah bila diejek. Dia ingat: puasa bukan sekadar lapar. Dia diam, tarik nafas, dan senyum. Itu kemenangan sebenar.",
         points: [
           "Orang kuat bukan yang menang bergaduh, tapi yang tahan marah",
@@ -632,7 +688,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 3
       {
         title: "Mulut Pun Puasa",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(3),
         story: "Seorang guru kata, “Puasa itu perisai.” Maksudnya, ia lindungi kita dari dosa — termasuk dosa lidah.",
         points: [
           "Puasa ajar kita jaga lidah: jangan mengata, jangan tipu",
@@ -650,7 +706,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 4
       {
         title: "Hati Lembut",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(4),
         story: "Ada budak cepat terasa hati. Bila dia belajar sabar, dia dapati hati jadi lebih tenang dan mudah maafkan orang.",
         points: [
           "Hati lembut mudah menerima nasihat",
@@ -668,7 +724,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 5
       {
         title: "Sedekah Kecil, Pahala Besar",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(5),
         story: "Seorang anak sedekah RM1. Kawannya ketawa. Tapi guru kata, “Di sisi Allah, mungkin itu lebih besar dari RM100 kerana ikhlas.”",
         points: [
           "Nilai sedekah bukan pada jumlah, tapi keikhlasan",
@@ -686,7 +742,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 6
       {
         title: "Sabar Level Up",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(6),
         story: "Seorang pelajar hampir bergaduh sebab diejek. Dia ingat: orang kuat ialah yang tahan marah. Dia undur dan diam. Itulah ‘level up’ sabar.",
         points: [
           "Sabar bukan lemah, sabar itu bijak",
@@ -704,7 +760,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 7
       {
         title: "Solat On Time",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(7),
         story: "Seorang anak selalu lambat solat. Bila dia faham solat mencegah perkara buruk, dia mula cuba solat awal.",
         points: [
           "Solat menjaga hati daripada perkara tak elok",
@@ -722,7 +778,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 8
       {
         title: "Quran Sahabat Kita",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(8),
         story: "Seorang budak baca Quran 5 minit sehari. Kawan ketawa. Tapi gurunya kata: Allah suka amalan yang konsisten.",
         points: [
           "Sedikit tetapi selalu lebih Allah suka",
@@ -740,7 +796,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 9
       {
         title: "Adab Dengan Mak Ayah",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(9),
         story: "Seorang anak bantu ibunya tanpa disuruh. Ibunya senyum dan doa. Redha ibu bapa itu sangat besar di sisi Allah.",
         points: [
           "Berbakti kepada ibu bapa termasuk ibadah",
@@ -758,7 +814,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 10
       {
         title: "Doa Senjata Mukmin",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(10),
         story: "Seorang anak rasa risau tentang peperiksaan. Dia mula berdoa setiap malam. Hatinya jadi tenang — walau keputusan belum keluar.",
         points: [
           "Doa menenangkan hati",
@@ -780,7 +836,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 11
       {
         title: "Jaga Mata & Telinga",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(11),
         story: "Seorang anak sedar, apa yang dia tengok akan masuk ke hati. Bila dia pilih tontonan baik, dia rasa lebih tenang.",
         points: [
           "Mata dan telinga ialah amanah",
@@ -798,7 +854,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       // 12
       {
         title: "Kawan Baik Tarik Syurga",
-        base: DEFAULT_BASE,
+        base: buildDailyIntro(12),
         story: "Ada dua kawan: satu ajak solat, satu ajak main sampai tinggal solat. Sahabat sebenar ialah yang bawa kita dekat Allah.",
         points: [
           "Kawan mempengaruhi iman",
@@ -814,7 +870,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 13
-      { title:"Surah Al-Fatihah Hebat", base:DEFAULT_BASE,
+      { title:"Surah Al-Fatihah Hebat", base:buildDailyIntro(13),
         story:"Bila anak faham maksud Al-Fatihah, solat jadi lebih fokus sebab dia tahu apa yang dia minta.",
         points:["Al-Fatihah = doa besar dalam solat","Kita minta jalan lurus setiap hari","اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (Al-Fatihah:6)"],
         reflection:"Apa maksud ‘jalan lurus’ bagi adik?",
@@ -826,7 +882,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 14
-      { title:"Al-Ikhlas: Allah Satu", base:DEFAULT_BASE,
+      { title:"Al-Ikhlas: Allah Satu", base:buildDailyIntro(14),
         story:"Seorang anak tanya, ‘Allah macam apa?’ Ayah jawab, ‘Allah tak sama dengan makhluk. Allah Maha Hebat.’",
         points:["Tauhid: Allah itu Esa","Allah tak sama dengan apa-apa","قُلْ هُوَ اللَّهُ أَحَدٌ (Al-Ikhlas:1)"],
         reflection:"Apa maksud ‘Allah itu satu’ pada adik?",
@@ -838,7 +894,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 15
-      { title:"Istighfar Bila Silap", base:DEFAULT_BASE,
+      { title:"Istighfar Bila Silap", base:buildDailyIntro(15),
         story:"Rasulullah ﷺ mengajar kita cepat kembali kepada Allah bila tersilap. Istighfar itu macam ‘reset’ hati.",
         points:["Bila salah, cepat minta ampun","Istighfar bersihkan hati","أَسْتَغْفِرُ اللَّهَ (amalan zikir)"],
         reflection:"Apa satu kesilapan kecil yang adik boleh baiki hari ini?",
@@ -850,7 +906,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 16
-      { title:"Syukur: Nampak Nikmat Kecil", base:DEFAULT_BASE,
+      { title:"Syukur: Nampak Nikmat Kecil", base:buildDailyIntro(16),
         story:"Ada anak rasa ‘biasa je’ hari dia. Bila dia senaraikan nikmat (makan, rumah, mak ayah), baru dia rasa hati penuh.",
         points:["Syukur tambah nikmat","Syukur buat hati tenang","لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ (Ibrahim:7)"],
         reflection:"Apa 3 nikmat yang adik dapat hari ini?",
@@ -862,7 +918,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 17
-      { title:"Adab Makan & Minum", base:DEFAULT_BASE,
+      { title:"Adab Makan & Minum", base:buildDailyIntro(17),
         story:"Bila anak makan dengan adab (bismillah, tangan kanan, tak membazir), dia belajar disiplin dan hormat rezeki.",
         points:["Baca Bismillah","Makan sederhana, tak membazir","كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا (Al-A'raf:31)"],
         reflection:"Adik selalu lupa Bismillah atau lupa tangan kanan?",
@@ -874,7 +930,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 18
-      { title:"Jaga Barang, Jaga Amanah", base:DEFAULT_BASE,
+      { title:"Jaga Barang, Jaga Amanah", base:buildDailyIntro(18),
         story:"Seorang anak pinjam pensel kawan tapi lupa pulang. Bila dia pulangkan, hubungan jadi baik semula. Amanah itu besar.",
         points:["Amanah = jaga barang & janji","Amanah tanda orang beriman","إِنَّ اللَّهَ يَأْمُرُكُمْ أَنْ تُؤَدُّوا الْأَمَانَاتِ (An-Nisa’:58)"],
         reflection:"Apa amanah kecil yang adik boleh jaga hari ini?",
@@ -886,7 +942,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 19
-      { title:"Buat Baik Senyap-senyap", base:DEFAULT_BASE,
+      { title:"Buat Baik Senyap-senyap", base:buildDailyIntro(19),
         story:"Ada anak tolong angkat beg kawan tanpa cerita pada orang. Dia rasa hati dia ‘ringan’ sebab Allah tahu.",
         points:["Buat baik tanpa menunjuk","Allah suka ikhlas","وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللَّهِ (Al-Baqarah:110)"],
         reflection:"Boleh tak adik buat baik tanpa sesiapa tahu hari ini?",
@@ -898,7 +954,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 20
-      { title:"Takut Allah Itu Comel (Bukan Seram)", base:DEFAULT_BASE,
+      { title:"Takut Allah Itu Comel (Bukan Seram)", base:buildDailyIntro(20),
         story:"Rasa takut Allah bukan macam takut hantu. Ia macam ‘sayang + hormat’ — sebab kita tak nak kecewakan Allah.",
         points:["Takut Allah = rasa hormat & sayang","Ia buat kita jaga diri","إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ (Fatir:28)"],
         reflection:"Bila adik ingat Allah nampak, apa yang adik akan ubah?",
@@ -910,7 +966,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 21
-      { title:"Hero Senyap-senyap", base:DEFAULT_BASE,
+      { title:"Hero Senyap-senyap", base:buildDailyIntro(21),
         story:"Ada orang paling hebat ialah yang menolong tanpa cari nama. Itu hero yang Allah sayang.",
         points:["Tolong orang = pahala","Ikhlas lebih hebat","أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ (Hadis: Tabarani - makna masyhur)"],
         reflection:"Siapa seorang yang adik boleh bantu hari ini?",
@@ -922,7 +978,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 22
-      { title:"Tadarus 5 Minit", base:DEFAULT_BASE,
+      { title:"Tadarus 5 Minit", base:buildDailyIntro(22),
         story:"Bila buat 5 minit sehari, seminggu jadi 35 minit. Lama-lama Quran jadi rutin, bukan beban.",
         points:["Konsisten lebih kuat daripada ‘sekali banyak’","Quran bagi cahaya","أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ (Muslim)"],
         reflection:"Adik nak pilih masa tadarus bila?",
@@ -934,7 +990,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 23
-      { title:"Jangan Suka Mengata", base:DEFAULT_BASE,
+      { title:"Jangan Suka Mengata", base:buildDailyIntro(23),
         story:"Mengata macam ‘makan pahala sendiri’. Lebih baik doakan orang dan jaga lidah.",
         points:["Mengata menyakitkan orang","Jaga lidah jaga pahala","وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضًا (Al-Hujurat:12)"],
         reflection:"Bila rasa nak mengata, apa pilihan lebih baik?",
@@ -946,7 +1002,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 24
-      { title:"Senyum Itu Sedekah", base:DEFAULT_BASE,
+      { title:"Senyum Itu Sedekah", base:buildDailyIntro(24),
         story:"Senyum kecil boleh ubah hari orang lain. Kawan yang sedih pun rasa lega bila kita senyum dan sapa baik.",
         points:["Senyum = sedekah","Buat suasana jadi baik","تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ (Hadis: Tirmizi)"],
         reflection:"Siapa yang adik boleh senyum dan bagi salam hari ini?",
@@ -958,7 +1014,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 25
-      { title:"Lailatul Qadar Istimewa", base:DEFAULT_BASE,
+      { title:"Lailatul Qadar Istimewa", base:buildDailyIntro(25),
         story:"Rasulullah ﷺ bersungguh-sungguh pada 10 malam terakhir. Sebab ada satu malam yang nilainya lebih 83 tahun ibadah.",
         points:["Lailatul Qadar lebih baik dari 1000 bulan","Malam penuh rahmat","لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ أَلْفِ شَهْرٍ (Al-Qadr:3)"],
         reflection:"Kalau malam ini Lailatul Qadar, apa doa terbesar adik?",
@@ -970,7 +1026,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 26
-      { title:"Doa Untuk Palestin & Ummah", base:DEFAULT_BASE,
+      { title:"Doa Untuk Palestin & Ummah", base:buildDailyIntro(26),
         story:"Doa anak kecil itu ikhlas. Bila adik doakan orang susah, Allah lembutkan hati adik jadi lebih penyayang.",
         points:["Doa untuk orang lain ada ganjaran","Islam ajar kita fikir ummah","اللّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ (Doa umum)"],
         reflection:"Siapa yang adik nak doakan malam ini?",
@@ -982,7 +1038,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 27
-      { title:"Puasa Hati", base:DEFAULT_BASE,
+      { title:"Puasa Hati", base:buildDailyIntro(27),
         story:"Puasa bukan hanya perut. Hati pun puasa: jangan dengki, jangan benci, jangan sombong.",
         points:["Puasa hati = jaga niat & emosi","Dengki makan pahala","وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَى بَعْضٍ (An-Nisa’:32)"],
         reflection:"Apa perasaan yang adik nak ‘puasakan’ hari ini?",
@@ -994,7 +1050,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 28
-      { title:"Jangan Putus Asa", base:DEFAULT_BASE,
+      { title:"Jangan Putus Asa", base:buildDailyIntro(28),
         story:"Ada anak rasa ‘aku selalu gagal’. Tapi Allah buka pintu taubat. Yang penting kita bangun semula.",
         points:["Allah sayang hamba yang kembali","Jangan putus asa dari rahmat Allah","لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ (Az-Zumar:53)"],
         reflection:"Apa satu benda adik nak cuba baiki esok?",
@@ -1006,7 +1062,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 29
-      { title:"Maafkan Orang", base:DEFAULT_BASE,
+      { title:"Maafkan Orang", base:buildDailyIntro(29),
         story:"Hati jadi berat bila simpan dendam. Bila maafkan, hati jadi ringan, tidur pun lena.",
         points:["Maafkan orang = hati tenang","Allah suka orang pemaaf","وَلْيَعْفُوا وَلْيَصْفَحُوا (An-Nur:22)"],
         reflection:"Siapa yang adik boleh maafkan hari ini?",
@@ -1018,7 +1074,7 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
       },
 
       // 30
-      { title:"Ramadan Selepas Ramadan", base:DEFAULT_BASE,
+      { title:"Ramadan Selepas Ramadan", base:buildDailyIntro(30),
         story:"Ramadan macam sekolah latihan. Bila Syawal, latihan masuk dunia sebenar. Kita pilih 1 amalan kecil untuk teruskan.",
         points:["Istiqamah itu kemenangan besar","Sedikit tapi konsisten","وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ (Al-Hijr:99)"],
         reflection:"Apa satu amalan kecil yang adik nak teruskan lepas Ramadan?",
@@ -1288,3 +1344,4 @@ Hari ni, kita buat satu kebaikan kecil tapi konsisten.
   </script>
 </body>
 </html>
+
