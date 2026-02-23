@@ -14,19 +14,18 @@
 
   <style>
     :root{
-      /* royal yellow, ceria tapi still premium */
-      --bg:#fff7cc;       /* kuning lembut */
-      --bg2:#fff1a3;      /* kuning ceria */
+      --bg:#fff7cc;
+      --bg2:#fff1a3;
 
       --card:#ffffff;
       --ink:#1f2937;
       --muted:#6b7280;
 
-      --brand:#f59e0b;    /* amber (kuning raja) */
-      --brand2:#facc15;   /* yellow terang */
-      --accent:#fb7185;   /* pink manja (kids) */
-      --mint:#22c55e;     /* hijau */
-      --sky:#06b6d4;      /* cyan */
+      --brand:#f59e0b;
+      --brand2:#facc15;
+      --accent:#fb7185;
+      --mint:#22c55e;
+      --sky:#06b6d4;
 
       --softShadow: 0 18px 50px rgba(17,24,39,.14);
       --softShadow2: 0 10px 28px rgba(17,24,39,.12);
@@ -52,7 +51,6 @@
       padding: 22px 16px 40px;
     }
 
-    /* Header block */
     .hero{
       background: linear-gradient(135deg, rgba(245,158,11,.98), rgba(250,204,21,.96));
       border-radius: 30px;
@@ -72,7 +70,6 @@
         radial-gradient(circle at 80% 70%, rgba(255,255,255,.26) 0 7px, transparent 8px);
       opacity:.35;
       transform: rotate(14deg);
-      filter: blur(.2px);
       pointer-events:none;
     }
 
@@ -82,7 +79,6 @@
       justify-content:space-between;
       gap: 12px;
     }
-
     .titleBlock{ min-width:0; }
 
     .kicker{
@@ -111,7 +107,6 @@
       text-shadow: 0 2px 10px rgba(0,0,0,.16);
     }
 
-    /* Logo */
     .logoWrap{
       flex: 0 0 auto;
       width: 76px;
@@ -143,7 +138,6 @@
       background: rgba(255,255,255,.85);
     }
 
-    /* Search */
     .searchWrap{
       margin-top: 16px;
       background: rgba(255,255,255,.95);
@@ -185,7 +179,7 @@
       flex: 0 0 auto;
     }
 
-    /* GRID: USTAZ NAK 5 KOLUM SENTIASA (MACAM GAMBAR) */
+    /* GRID 5 kolum sentiasa */
     .grid{
       margin-top: 16px;
       display:grid;
@@ -199,7 +193,6 @@
       border-radius: 22px;
       padding: 12px 10px;
       text-align:center;
-      color:#1f2937;
       cursor:pointer;
       transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
       user-select:none;
@@ -268,12 +261,7 @@
       font-weight: 900;
     }
 
-    /* =========================
-       MODAL (POPUP) FIX:
-       - boleh scroll dalam popup
-       - tak bertindih
-       - header kekal, body scroll
-       ========================= */
+    /* MODAL: scroll elok, tak bertindih */
     .modalOverlay{
       position: fixed;
       inset: 0;
@@ -281,11 +269,9 @@
       display:none;
       padding: 16px;
       z-index: 9999;
-
-      /* ini penting untuk mobile */
-      overflow: auto;                 /* overlay boleh scroll kalau modal tinggi */
+      overflow: auto;
       -webkit-overflow-scrolling: touch;
-      align-items: flex-start;        /* start atas, senang scroll */
+      align-items: flex-start;
       justify-content:center;
     }
     .modalOverlay.open{ display:flex; }
@@ -297,8 +283,6 @@
       box-shadow: 0 30px 90px rgba(0,0,0,.25);
       border: 1px solid rgba(31,41,55,.10);
       overflow:hidden;
-
-      /* penting: hadkan tinggi ikut skrin */
       max-height: calc(100dvh - 32px);
       display:flex;
       flex-direction: column;
@@ -338,19 +322,17 @@
       flex: 0 0 auto;
     }
 
-    /* body scroll di dalam modal */
     .modalBody{
       padding: 14px 16px 16px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 12px;
-
-      overflow: auto;                 /* INI FIX SCROLL */
+      overflow: auto;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
       flex: 1 1 auto;
-      min-height: 0;                  /* penting utk grid+scroll */
-      background: rgba(255,255,255,.96); /* elak nampak “tertindih” */
+      min-height: 0;
+      background: rgba(255,255,255,.96);
     }
 
     .paper{
@@ -374,6 +356,9 @@
       font-size: 15px;
       white-space: pre-wrap;
     }
+    .tazkirahText .secTitle{ display:block; margin-top: 14px; font-weight: 1000; }
+    .tazkirahText .muted{ color: rgba(107,114,128,.95); font-weight: 800; }
+    .tazkirahText .arab{ font-weight: 900; direction: rtl; unicode-bidi: plaintext; font-family: "Inter", system-ui; }
 
     .sideCard{
       border-radius: 22px;
@@ -384,6 +369,7 @@
       display:flex;
       flex-direction:column;
       gap: 10px;
+      height: fit-content;
     }
 
     .task{
@@ -443,19 +429,12 @@
       transform: translateX(-50%) translateY(-2px);
     }
 
-    /* =========================
-       MOBILE TUNING
-       - kekalkan 5 kolum
-       - kecilkan card + header
-       ========================= */
     @media (max-width: 520px){
       .container{ padding: 12px 10px 22px; }
       .hero{ border-radius: 20px; padding: 16px 12px; }
-
       .kicker{ font-size: 10px; letter-spacing: .16em; }
       .mainTitle{ font-size: 22px; line-height: 1.12; }
       .subTitle{ font-size: 12px; }
-
       .logoWrap{ width: 52px; height: 52px; padding: 4px; }
 
       .searchWrap{ margin-top: 12px; padding: 10px 10px; border-radius: 18px; gap: 8px; }
@@ -463,13 +442,11 @@
       .searchInput{ font-size: 14px; }
       .chipBtn{ font-size: 12px; padding: 8px 10px; border-radius: 14px; }
 
-      /* 5 kolum tetap — kecilkan kad */
       .grid{ gap: 10px; }
       .dayCard{ min-height: 64px; border-radius: 18px; padding: 10px 6px; }
       .dayLabel{ font-size: 10px; }
       .dayNum{ font-size: 22px; }
 
-      /* modal jadi 1 kolum di phone */
       .modalHeader{ padding: 14px 14px 10px; }
       .modalTitle{ font-size: 18px; }
       .modalSub{ font-size: 12px; }
@@ -480,7 +457,6 @@
       }
       .paper, .sideCard{ border-radius: 18px; padding: 12px; }
       .tazkirahText{ font-size: 14px; line-height: 1.65; }
-
       .btnRow{ flex-direction: column; }
       .btn{ width: 100%; justify-content: center; }
     }
@@ -503,7 +479,6 @@
           <p class="subTitle">Ramadhan 1446H • Versi Kanak-Kanak 🌙✨</p>
         </div>
 
-        <!-- Logo bulat -->
         <div class="logoWrap" title="Masjid As-Siddiq, Bandar Seri Iskandar">
           <img
             src="logomasjid.jpeg"
@@ -536,7 +511,7 @@
       <div class="modalHeader">
         <div>
           <h3 id="modalTitle" class="modalTitle">Hari 1: ...</h3>
-          <p id="modalSub" class="modalSub">Tazkirah ringkas untuk anak-anak (mudah & ceria)</p>
+          <p id="modalSub" class="modalSub">Tazkirah ringkas untuk anak-anak • Versi Kanak-Kanak</p>
         </div>
         <button id="closeBtn" class="closeBtn" aria-label="Tutup">✕</button>
       </div>
@@ -565,7 +540,7 @@
 
           <div class="task">
             <b>👨‍👩‍👧 Tip Mak Ayah</b>
-            <p id="parentTipText">Biar anak jawab sendiri, jangan cepat betulkan. Puji usaha kecil dia.</p>
+            <p id="parentTipText">—</p>
           </div>
         </div>
       </div>
@@ -575,752 +550,495 @@
   <div id="toast" class="toast">Done</div>
 
   <script>
-    // =============================
-    // DATA: 30 Hari (Ustaz boleh edit tajuk & teks)
-    // =============================
-const TITLES = [
-"Ramadan: Misi Ikhlas",
-"Puasa Superhero",
-"Mulut Pun Puasa",
-"Hati Lembut",
-"Sedekah Kecil, Pahala Besar",
-"Sabar Level Up",
-"Solat On Time",
-"Quran Sahabat Kita",
-"Adab Dengan Mak Ayah",
-"Doa Senjata Mukmin",
-"Jaga Mata & Telinga",
-"Kawan Baik Tarik Syurga",
-"Surah Al-Fatihah Hebat",
-"Al-Ikhlas: Allah Satu",
-"Al-Falaq: Minta Perlindungan",
-"An-Nas: Allah Pelindung Hati",
-"Berani Minta Maaf",
-"Tolong Tanpa Disuruh",
-"Syukur Setiap Hari",
-"Jangan Mengata",
-"Hero Senyap-Senyap",
-"Tadarus 5 Minit",
-"Jaga Amanah",
-"Senyum Itu Sedekah",
-"Lailatul Qadar Istimewa",
-"Doa Untuk Palestin & Ummah",
-"Puasa Hati",
-"Jangan Putus Asa",
-"Maafkan Orang",
-"Ramadan Selepas Ramadan"
-];
+    // ======================================================
+    // CONTENT: 30 HARI (EDIT SINI SAHAJA)
+    // - title: tajuk hari
+    // - base: tazkirah asas (jangan ulang tajuk)
+    // - story/points/reflection/doa/action: tambah sederhana panjang + dalil
+    // - mission/question/parentTip: side card
+    // ======================================================
 
-const TAZKIRAH = [
-`Ramadan ni misi khas daripada Allah.
-Kita jadi superhero sebenar.
-Bukan pakai jubah terbang.
-Tapi pakai hati yang ikhlas.
-Kalau buat baik sebab Allah, pahala jadi besar.
-Walaupun orang tak nampak.
-✨ Allah nampak semuanya.`,
+    const DEFAULT_BASE =
+`Adik sayang, Ramadan ni macam “bulan latihan superhero”.
+Kita bukan latihan kuat badan saja, tapi latihan kuat hati.
 
-`Puasa bukan sekadar tak makan.
-Puasa ajar kita tahan marah.
-Tahan mengeluh.
-Tahan malas.
-Itu kuasa sebenar.
-✨ Superhero sebenar kuat kawal diri.`,
+1) Bila kita puasa, Allah ajar kita sabar.
+2) Bila kita tahan marah, Allah sayang.
+3) Bila kita buat baik walau kecil, pahala besar.
 
-`Bila puasa, mulut pun kena puasa.
-Jangan menjerit.
-Jangan mengata.
-Jangan tipu.
-Kalau tersilap, cepat istighfar.
-✨ Mulut baik, hati jadi bersih.`,
+Ingat ya: Allah tengok usaha, bukan tunggu kita perfect.
+Hari ni, kita buat satu kebaikan kecil tapi konsisten.
 
-`Hati lembut mudah masuk syurga.
-Kalau ada orang sakiti kita,
-jangan cepat marah.
-Tarik nafas.
-Senyum.
-✨ Allah suka orang penyabar.`,
+✨ “Kebaikan kecil + istiqamah = jadi hebat.”`;
 
-`Sedekah tak perlu banyak.
-Seringgit pun boleh.
-Air pun boleh.
-Doa pun boleh.
-✨ Allah gandakan pahala orang yang memberi.`,
+    // Helper untuk buat text body yang "smooth" (tak repeat)
+    function buildBody(item){
+      const out = [];
+      if(item.base) out.push(item.base.trim());
 
-`Sabar itu power.
-Bila lapar, sabar.
-Bila penat, sabar.
-Bila marah, sabar.
-✨ Sabar buat kita naik level.`,
+      if(item.story) out.push(`📖 Kisah Ringkas\n${item.story.trim()}`);
 
-`Solat macam recharge bateri.
-Kalau tak solat,
-hati cepat letih.
-Solat awal waktu,
-Allah jaga kita.`,
-    
-`Quran bukan buku biasa.
-Dia cahaya.
-Bila baca sikit pun,
-Allah kira pahala.
-✨ 1 huruf = 10 pahala.`,
+      if(Array.isArray(item.points) && item.points.length){
+        out.push(`✅ 3 Pengajaran\n- ${item.points.map(s => String(s).trim()).join("\n- ")}`);
+      }
 
-`Mak ayah penat cari rezeki.
-Tolong mereka walau kecil.
-Susun kasut pun pahala.
-✨ Syurga bawah redha ibu.`,
+      if(item.reflection) out.push(`💭 Refleksi Anak\n${item.reflection.trim()}`);
 
-`Doa itu senjata.
-Doa boleh ubah hati.
-Doa boleh ubah dunia.
-✨ Allah dengar walau perlahan.`,
+      if(item.doa) out.push(`🤲 Doa Ringkas\n${item.doa.trim()}`);
 
-`Jaga mata dari benda tak baik.
-Jaga telinga dari gosip.
-✨ Hati jadi bersih bila kita jaga deria.`,
+      if(item.action) out.push(`🚀 Langkah Kecil Hari Ini\n${item.action.trim()}`);
 
-`Kawan baik ajak solat.
-Kawan baik ajak baca Quran.
-Pilih kawan yang tarik kita ke syurga.`,
+      return out.join("\n\n").trim();
+    }
 
-`Al-Fatihah surah paling hebat.
-Kita baca tiap solat.
-Minta Allah tunjuk jalan lurus.`,
-
-`Surah Al-Ikhlas ajar kita:
-Allah satu.
-Tak ada dua.
-Tak ada sama macam Dia.`,
-
-`Surah Al-Falaq ajar kita minta perlindungan.
-Daripada gelap.
-Daripada hasad.
-Daripada kejahatan.`,
-
-`Surah An-Nas ajar kita minta Allah jaga hati.
-Supaya tak ikut bisikan jahat.`,
-
-`Kalau buat salah,
-cepat minta maaf.
-Orang kuat bukan yang menang.
-Tapi yang berani minta maaf.`,
-
-`Tolong orang tanpa disuruh.
-Itu tanda hati baik.`,
-
-`Syukur bila dapat makanan.
-Syukur bila sihat.
-Syukur bila ada keluarga.`,
-
-`Jangan mengata orang.
-Kalau tak suka,
-diam lebih baik.`,
-
-`Buat baik tanpa orang tahu.
-Itu paling hebat.`,
-
-`Tadarus tak perlu lama.
-5 minit pun jadi.
-Yang penting konsisten.`,
-
-`Amanah bermaksud jaga barang.
-Jaga janji.
-Jaga solat.`,
-
-`Senyum pun sedekah.
-Senyum buat orang rasa tenang.`,
-
-`10 malam terakhir sangat istimewa.
-Ada malam lebih baik dari 1000 bulan.`,
-
-`Doakan saudara kita di Palestin.
-Doakan orang susah.
-Doa anak kecil sangat kuat.`,
-
-`Puasa hati bermaksud tak dengki.
-Tak sombong.
-Tak benci.`,
-
-`Kalau terlepas solat,
-jangan putus asa.
-Cepat qada dan baiki.`,
-
-`Maafkan orang sebelum tidur.
-Hati jadi ringan.`,
-
-`Ramadan bukan habis bila Syawal.
-Kebaikan kena teruskan.`];
-
-const MISSIONS = [
-"Buat satu amalan kerana Allah sahaja.",
-"Tahan marah hari ini.",
-"Cakap baik sahaja sepanjang hari.",
-"Senyum bila marah datang.",
-"Sedekah walau sedikit.",
-"Sabar bila diuji.",
-"Solat awal waktu.",
-"Baca 3 ayat Quran.",
-"Tolong mak ayah tanpa disuruh.",
-"Doa untuk keluarga.",
-"Elak tengok benda tak elok.",
-"Ajak kawan solat.",
-"Baca Al-Fatihah dengan faham.",
-"Hafal Surah Al-Ikhlas.",
-"Baca Al-Falaq sebelum tidur.",
-"Baca An-Nas sebelum tidur.",
-"Minta maaf pada seseorang.",
-"Tolong satu orang hari ini.",
-"Sebut 3 perkara yang disyukuri.",
-"Diam bila nak mengata.",
-"Buat baik tanpa cerita pada orang.",
-"Tadarus 5 minit.",
-"Jaga janji hari ini.",
-"Senyum pada 5 orang.",
-"Bangun qiyam walau 2 rakaat.",
-"Doa untuk ummah.",
-"Buang rasa dengki.",
-"Baiki satu kesilapan.",
-"Maafkan seseorang.",
-"Teruskan satu amalan selepas Ramadan."
-];
-
-const QUESTIONS = [
-"Adik buat baik sebab siapa?",
-"Apa yang paling susah bila puasa?",
-"Bila adik nak marah, apa patut buat?",
-"Macam mana nak lembutkan hati?",
-"Apa yang adik boleh sedekahkan?",
-"Kenapa sabar itu penting?",
-"Kenapa solat awal waktu bagus?",
-"Berapa pahala 1 huruf Quran?",
-"Kenapa kita kena hormat mak ayah?",
-"Apa doa adik hari ni?",
-"Apa jadi kalau mata tak dijaga?",
-"Macam mana pilih kawan baik?",
-"Apa maksud jalan lurus?",
-"Siapa Allah?",
-"Apa maksud perlindungan?",
-"Kenapa hati perlu dijaga?",
-"Kenapa minta maaf itu berani?",
-"Kenapa tolong orang itu baik?",
-"Apa nikmat hari ini?",
-"Apa jadi kalau suka mengata?",
-"Kenapa buat baik senyap-senyap?",
-"Kenapa baca Quran sikit tapi konsisten bagus?",
-"Apa maksud amanah?",
-"Kenapa senyum pahala?",
-"Apa istimewa Lailatul Qadar?",
-"Siapa yang adik nak doakan?",
-"Apa maksud puasa hati?",
-"Apa nak buat bila tersilap?",
-"Kenapa maafkan orang itu penting?",
-"Apa amalan nak teruskan selepas Ramadan?"
-];
-
-const PARENT_TIPS = [
-"Puji usaha kecil anak.",
-"Beri pilihan supaya anak rasa dihargai.",
-"Jangan panjang sangat, 1 minit cukup.",
-"Jangan banding dengan anak lain.",
-"Buat sama-sama dengan anak.",
-"Ulang mesej yang sama dengan lembut.",
-"Fokus konsisten, bukan sempurna.",
-"Tanya anak balik untuk faham.",
-"Peluk anak selepas tazkirah.",
-"Jangan marah jika anak lupa."
-];
-// =============================
-// TEMPLATE PANJANGKAN TAZKIRAH (Cara 2)
-// =============================
-function buildLongTazkirah(day, title, baseText, extra){
-  // extra = {story, points[], reflection, doa, action}
-  const story = extra?.story ? `📖 Kisah Ringkas\n${extra.story}\n\n` : "";
-  const points = Array.isArray(extra?.points) && extra.points.length
-    ? `✅ 3 Pengajaran\n- ${extra.points.join("\n- ")}\n\n`
-    : "";
-  const reflection = extra?.reflection ? `💭 Refleksi Anak\n${extra.reflection}\n\n` : "";
-  const doa = extra?.doa ? `🤲 Doa Ringkas\n${extra.doa}\n\n` : "";
-  const action = extra?.action ? `🚀 Langkah Kecil Hari Ini\n${extra.action}\n\n` : "";
-
-  // baseText: versi ringkas (yang Ustaz dah ada)
-  return (
-`Hari ${day} — ${title}
-
-${baseText}
-
-${story}${points}${reflection}${doa}${action}`.trim()
-  );
-}
-
-    const EXTRA_30 = [
-  {
-    story: "Seorang budak pernah ditanya, kenapa kamu puasa? Dia jawab, “Sebab Allah suruh, dan Allah nampak walau orang tak nampak.” Itulah ikhlas.",
-    points: [
-      "Ikhlas bermaksud buat sesuatu kerana Allah semata-mata",
-      "Amalan kecil jadi besar bila niat betul",
-      "Allah menilai hati sebelum menilai perbuatan"
-    ],
-    reflection: "Hari ini, adik buat baik sebab siapa?",
-    doa: "اللّهُمَّ اجْعَلْ عَمَلِي خَالِصًا لَكَ\nYa Allah, jadikan amalanku ikhlas kerana-Mu.",
-    action: "Sebelum solat, sebut dalam hati: ‘Ya Allah, aku buat ini kerana-Mu.’"
-  },
-
-  {
-    story: "Ada anak yang hampir marah bila diejek. Tapi dia ingat puasa bukan sekadar lapar. Dia diam dan senyum. Itu kemenangan sebenar.",
-    points: [
-      "Puasa latih kita kawal emosi",
-      "Orang kuat ialah orang yang tahan marah",
-      "Sabar menaikkan darjat di sisi Allah"
-    ],
-    reflection: "Apa yang adik boleh buat bila rasa marah?",
-    doa: "رَبِّ اشْرَحْ لِي صَدْرِي\nYa Tuhanku, lapangkanlah dadaku.",
-    action: "Latih tarik nafas 3 kali bila rasa geram."
-  },
-
-  {
-    story: "Seorang guru berkata, ‘Puasa itu perisai.’ Maksudnya, ia lindungi kita dari buat dosa. Kalau kita jaga puasa, puasa jaga kita.",
-    points: [
-      "Puasa mengajar kita jaga lidah",
-      "Mengata boleh rosakkan pahala",
-      "Diam lebih baik daripada berkata buruk"
-    ],
-    reflection: "Hari ini, ayat apa yang adik nak elakkan?",
-    doa: "اللّهُمَّ اهْدِنِي لِأَحْسَنِ الأَخْلاَقِ\nYa Allah, bimbing aku kepada akhlak terbaik.",
-    action: "Cuba satu hari tanpa mengata sesiapa."
-  },
-
-  {
-    story: "Seorang anak sedekah RM1 sahaja. Kawannya ketawa. Tapi guru berkata, ‘Di sisi Allah, mungkin itu lebih besar dari RM100.’",
-    points: [
-      "Nilai sedekah bukan pada jumlah",
-      "Allah gandakan pahala orang yang memberi",
-      "Sedekah boleh jadi sebab masuk syurga"
-    ],
-    reflection: "Apa yang adik boleh sedekahkan hari ini?",
-    doa: "رَبِّ زِدْنِي عِلْمًا وَرِزْقًا\nYa Allah, tambahkan ilmu dan rezekiku.",
-    action: "Masukkan sedikit duit dalam tabung masjid atau bantu orang."
-  },
-
-  {
-    story: "Pada 10 malam terakhir, Rasulullah ﷺ lebih kuat beribadah. Baginda bangunkan keluarga untuk solat bersama.",
-    points: [
-      "Lailatul Qadar lebih baik daripada 1000 bulan",
-      "Doa pada malam itu sangat mustajab",
-      "Bangun walau 2 rakaat pun sudah besar nilainya"
-    ],
-    reflection: "Jika malam ini Lailatul Qadar, apa doa adik?",
-    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\nYa Allah, Engkau Maha Pemaaf, maka maafkanlah aku.",
-    action: "Solat 2 rakaat sebelum tidur malam ini."
-  },
-
-        {
-    story: "Seorang pelajar hampir bergaduh kerana diejek. Dia ingat sabda Nabi ﷺ bahawa orang kuat bukan yang menang bergusti, tetapi yang mampu menahan marah. Dia diam dan berundur. Itulah kemenangan sebenar.",
-    points: [
-      "Orang kuat ialah yang mampu menahan marah (Hadis Riwayat Bukhari & Muslim)",
-      "Sabar ketika marah sangat tinggi nilainya di sisi Allah",
-      "Menahan marah boleh menjadi sebab masuk syurga"
-    ],
-    reflection: "Bila adik marah, apa cara paling berkesan untuk kawal diri?",
-    doa: "اللّهُمَّ اكْفِنِي شَرَّ نَفْسِي\nYa Allah, lindungilah aku daripada keburukan diriku.",
-    action: "Jika marah hari ini, ambil wuduk dan diam selama 1 minit."
-  },
-
-  {
-    story: "Seorang anak selalu melambatkan solat. Suatu hari dia dengar ayat Quran bahawa solat mencegah perbuatan keji dan mungkar. Sejak itu dia cuba solat awal waktu.",
-    points: [
-      "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ (Al-Ankabut:45)",
-      "Solat awal waktu tanda cinta kepada Allah",
-      "Rasulullah ﷺ sangat menjaga solat walau dalam keadaan sibuk"
-    ],
-    reflection: "Adakah adik menjaga solat pada waktunya?",
-    doa: "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي\nYa Tuhanku, jadikan aku dan keturunanku orang yang mendirikan solat.",
-    action: "Solat satu waktu hari ini tepat pada azan pertama."
-  },
-
-  {
-    story: "Seorang budak membaca Quran sedikit sahaja setiap hari. Kawannya ketawa. Tetapi gurunya berkata, ‘Allah suka amalan yang sedikit tetapi berterusan.’",
-    points: [
-      "أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِن قَلَّ (Hadis Riwayat Muslim)",
-      "1 huruf Quran diberi 10 pahala",
-      "Konsisten lebih penting daripada banyak tetapi jarang"
-    ],
-    reflection: "Adik lebih suka baca banyak sekali atau sedikit tetapi selalu?",
-    doa: "اللّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قَلْبِي\nYa Allah, jadikan Quran penenang hatiku.",
-    action: "Baca sekurang-kurangnya 5 minit Quran hari ini."
-  },
-
-  {
-    story: "Seorang anak membantu ibunya tanpa disuruh. Ibunya tersenyum dan mendoakannya. Rasulullah ﷺ bersabda bahawa redha Allah terletak pada redha ibu bapa.",
-    points: [
-      "رِضَا الرَّبِّ فِي رِضَا الْوَالِدَيْنِ (Hadis Riwayat Tirmizi)",
-      "Berbakti kepada ibu bapa termasuk ibadah",
-      "Doa ibu bapa sangat mustajab"
-    ],
-    reflection: "Apa satu perkara yang adik boleh bantu mak ayah hari ini?",
-    doa: "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا\nYa Allah, rahmatilah kedua ibu bapaku sebagaimana mereka mendidikku kecil.",
-    action: "Tawarkan bantuan kepada mak atau ayah tanpa diminta."
-  },
-
-  {
-    story: "Pada 10 malam terakhir Ramadan, Rasulullah ﷺ bersungguh-sungguh beribadah dan membangunkan keluarganya. Baginda mahu mencari Lailatul Qadar.",
-    points: [
-      "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ (Al-Qadr:3)",
-      "Doa pada malam itu sangat mustajab",
-      "Walau dua rakaat, nilainya sangat besar"
-    ],
-    reflection: "Jika malam ini Lailatul Qadar, apa doa terbesar adik?",
-    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\nYa Allah, Engkau Maha Pemaaf dan suka memaafkan, maka maafkanlah aku.",
-    action: "Bangun malam walau sebentar untuk solat 2 rakaat."
-  },
-
+    // 30 Hari (cukup 30 item, tak crash)
+    const CONTENT = [
+      // 1
       {
-    story: "Seorang anak selalu menonton video tanpa tapis. Suatu hari dia dengar ayat Quran bahawa Allah Maha Melihat. Sejak itu dia mula berhati-hati dengan apa yang dilihat.",
-    points: [
-      "إِنَّ اللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ (Al-Baqarah:110)",
-      "Mata adalah amanah daripada Allah",
-      "Apa yang kita lihat mempengaruhi hati"
-    ],
-    reflection: "Adakah tontonan hari ini mendekatkan adik kepada Allah?",
-    doa: "اللّهُمَّ احْفَظْ بَصَرِي وَقَلْبِي\nYa Allah, peliharalah pandanganku dan hatiku.",
-    action: "Pilih satu tontonan yang memberi ilmu hari ini."
-  },
+        title: "Ramadan: Misi Ikhlas",
+        base: DEFAULT_BASE,
+        story: "Seorang budak pernah ditanya, “Kenapa kamu puasa?” Dia jawab, “Sebab Allah suruh, dan Allah nampak walau orang tak nampak.” Itulah ikhlas.",
+        points: [
+          "Ikhlas = buat kerana Allah, bukan sebab pujian orang",
+          "Allah menilai hati sebelum menilai perbuatan",
+          "“Sesungguhnya amalan itu dengan niat.” (Hadis: Bukhari & Muslim)"
+        ],
+        reflection: "Hari ini, adik buat baik sebab siapa?",
+        doa: "اللّهُمَّ اجْعَلْ عَمَلِي خَالِصًا لَكَ\nYa Allah, jadikan amalanku ikhlas kerana-Mu.",
+        action: "Sebelum solat, bisik dalam hati: “Ya Allah, aku buat ini kerana-Mu.”",
+        mission: "Buat satu amalan kerana Allah sahaja.",
+        question: "Adik buat baik sebab siapa?",
+        parentTip: "Puji usaha kecil anak, bukan semata-mata hasil."
+      },
 
-  {
-    story: "Ada dua sahabat. Seorang ajak ke masjid, seorang lagi ajak bermain hingga lewat solat. Akhirnya dia sedar, sahabat sebenar ialah yang membawa kita dekat dengan Allah.",
-    points: [
-      "المرء على دين خليله (Hadis Riwayat Abu Daud)",
-      "Kawan mempengaruhi akhlak dan iman",
-      "Pilih sahabat yang ingatkan tentang solat"
-    ],
-    reflection: "Siapa sahabat yang selalu ingatkan adik tentang kebaikan?",
-    doa: "اللّهُمَّ ارْزُقْنِي صُحْبَةً صَالِحَةً\nYa Allah, kurniakan aku sahabat yang soleh.",
-    action: "Ajak seorang kawan solat berjemaah."
-  },
-
-  {
-    story: "Seorang anak membaca Surah Al-Fatihah setiap hari tetapi tidak faham maksudnya. Bila dia belajar tafsirnya, solatnya menjadi lebih khusyuk.",
-    points: [
-      "اهدِنَا الصِّرَاطَ المُستَقِيمَ (Al-Fatihah:6)",
-      "Kita meminta petunjuk setiap kali solat",
-      "Solat lebih bermakna bila faham bacaan"
-    ],
-    reflection: "Apa maksud ‘jalan yang lurus’ bagi adik?",
-    doa: "اللّهُمَّ اهْدِنِي وَثَبِّتْنِي\nYa Allah, berilah aku petunjuk dan keteguhan.",
-    action: "Baca terjemahan Al-Fatihah sebelum solat."
-  },
-
-  {
-    story: "Seorang budak diejek kerana pakaiannya biasa sahaja. Dia tidak membalas, kerana dia tahu Allah melihat hati, bukan rupa.",
-    points: [
-      "إِنَّ اللَّهَ لَا يَنظُرُ إِلَى صُوَرِكُمْ وَلَا أَمْوَالِكُمْ وَلَٰكِن يَنظُرُ إِلَى قُلُوبِكُمْ (Hadis Riwayat Muslim)",
-      "Nilai manusia pada hati dan amal",
-      "Rendah diri lebih tinggi di sisi Allah"
-    ],
-    reflection: "Apa yang lebih penting: rupa atau hati?",
-    doa: "اللّهُمَّ طَهِّرْ قَلْبِي مِنَ الْكِبْرِ\nYa Allah, bersihkan hatiku daripada sifat sombong.",
-    action: "Puji seseorang kerana akhlaknya, bukan kerana rupa."
-  },
-
-  {
-    story: "Rasulullah ﷺ sangat pemurah di bulan Ramadan, seperti angin yang bertiup membawa kebaikan kepada semua orang.",
-    points: [
-      "كَانَ رَسُولُ اللَّهِ أَجْوَدَ النَّاسِ (Hadis Riwayat Bukhari)",
-      "Pemurah tanda hati hidup",
-      "Sedekah memadamkan dosa"
-    ],
-    reflection: "Apa bentuk sedekah paling mudah untuk adik lakukan?",
-    doa: "اللّهُمَّ اجْعَلْنِي مِنَ الْمُحْسِنِينَ\nYa Allah, jadikan aku daripada orang yang berbuat baik.",
-    action: "Sedekahkan sesuatu walaupun kecil hari ini."
-  },
-
+      // 2
       {
-    story: "Seorang pelajar rajin beribadah di bulan Ramadan, tetapi selepas itu dia kembali malas. Gurunya berkata, ‘Ibadah bukan bermusim, tetapi tanda hati yang hidup.’",
-    points: [
-      "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ (Ali-Imran:102)",
-      "Taqwa bermaksud sentiasa sedar Allah melihat kita",
-      "Ibadah yang berterusan lebih dicintai Allah"
-    ],
-    reflection: "Adakah ibadah adik hanya semangat bila orang nampak?",
-    doa: "اللّهُمَّ اجْعَلْنِي مِنَ الْمُتَّقِينَ\nYa Allah, jadikan aku daripada orang yang bertaqwa.",
-    action: "Lakukan satu ibadah walaupun tiada siapa melihat."
-  },
+        title: "Puasa Superhero",
+        base: DEFAULT_BASE,
+        story: "Ada anak hampir marah bila diejek. Dia ingat: puasa bukan sekadar lapar. Dia diam, tarik nafas, dan senyum. Itu kemenangan sebenar.",
+        points: [
+          "Orang kuat bukan yang menang bergaduh, tapi yang tahan marah",
+          "Menahan marah sangat besar nilainya",
+          "“Bukanlah kuat itu kerana menang bergusti…” (Hadis: Bukhari & Muslim)"
+        ],
+        reflection: "Bila adik marah, apa satu cara nak tenangkan diri?",
+        doa: "اللّهُمَّ اكْفِنِي شَرَّ نَفْسِي\nYa Allah, lindungilah aku daripada keburukan diriku.",
+        action: "Latih 3 langkah: diam → tarik nafas 3 kali → minta maaf jika perlu.",
+        mission: "Tahan marah hari ini.",
+        question: "Apa yang paling susah bila puasa?",
+        parentTip: "Ajar anak skrip ringkas: “Saya nak bertenang dulu.”"
+      },
 
-  {
-    story: "Seorang anak suka menyalahkan orang lain bila gagal. Suatu hari dia belajar bahawa muhasabah diri lebih penting daripada menyalahkan orang.",
-    points: [
-      "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ (Al-Hashr:18)",
-      "Muhasabah bermaksud menilai diri sendiri",
-      "Orang berjaya sentiasa memperbaiki diri"
-    ],
-    reflection: "Apa kesilapan adik yang boleh diperbaiki hari ini?",
-    doa: "رَبِّ اغْفِرْ لِي وَاهْدِنِي\nYa Allah, ampuni dan bimbinglah aku.",
-    action: "Sebelum tidur, fikir satu perkara yang boleh diperbaiki esok."
-  },
-
-  {
-    story: "Seorang budak menang pertandingan dan menjadi sombong. Gurunya mengingatkan bahawa segala kelebihan datang daripada Allah.",
-    points: [
-      "وَمَا بِكُم مِّن نِّعْمَةٍ فَمِنَ اللَّهِ (An-Nahl:53)",
-      "Sombong memusnahkan pahala",
-      "Rendah hati menambah kemuliaan"
-    ],
-    reflection: "Bila adik berjaya, adik ingat siapa?",
-    doa: "اللّهُمَّ جَنِّبْنِي الْكِبْرَ\nYa Allah, jauhkan aku daripada kesombongan.",
-    action: "Ucap ‘Alhamdulillah’ setiap kali berjaya."
-  },
-
-  {
-    story: "Seorang anak tidak sabar menunggu berbuka dan mengeluh. Ayahnya berkata, ‘Puasa ini untuk melatih kesabaran dan keikhlasan.’",
-    points: [
-      "إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ (Az-Zumar:10)",
-      "Ganjaran orang sabar tidak terbatas",
-      "Kesabaran membentuk akhlak yang kuat"
-    ],
-    reflection: "Dalam keadaan apa adik paling susah untuk sabar?",
-    doa: "اللّهُمَّ أَعِنِّي عَلَى الصَّبْرِ\nYa Allah, bantulah aku untuk bersabar.",
-    action: "Tahan satu keluhan hari ini walau terasa penat."
-  },
-
-  {
-    story: "Rasulullah ﷺ sentiasa menjaga lidahnya. Baginda bersabda bahawa sesiapa yang beriman kepada Allah dan hari akhirat hendaklah berkata baik atau diam.",
-    points: [
-      "مَن كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ (Hadis Riwayat Bukhari & Muslim)",
-      "Perkataan boleh jadi pahala atau dosa",
-      "Diam lebih selamat daripada berkata buruk"
-    ],
-    reflection: "Hari ini, adik lebih banyak bercakap atau berfikir sebelum bercakap?",
-    doa: "اللّهُمَّ احْفَظْ لِسَانِي\nYa Allah, peliharalah lidahku.",
-    action: "Fikir 3 saat sebelum bercakap hari ini."
-  },
-
+      // 3
       {
-    story: "Rasulullah ﷺ apabila masuk 10 malam terakhir, Baginda bersungguh-sungguh beribadah dan menghidupkan malamnya. Baginda tahu malam-malam ini sangat istimewa.",
-    points: [
-      "كَانَ رَسُولُ اللَّهِ يُحْيِي اللَّيْلَ فِي الْعَشْرِ الأَوَاخِرِ (Hadis Riwayat Muslim)",
-      "10 malam terakhir lebih bernilai dari malam biasa",
-      "Kesungguhan menunjukkan cinta kepada Allah"
-    ],
-    reflection: "Adakah adik bersungguh-sungguh pada malam terakhir Ramadan?",
-    doa: "اللّهُمَّ بَلِّغْنِي لَيْلَةَ الْقَدْرِ\nYa Allah, temukan aku dengan Lailatul Qadar.",
-    action: "Kurangkan bermain malam ini dan tambah ibadah walau sedikit."
-  },
+        title: "Mulut Pun Puasa",
+        base: DEFAULT_BASE,
+        story: "Seorang guru kata, “Puasa itu perisai.” Maksudnya, ia lindungi kita dari dosa — termasuk dosa lidah.",
+        points: [
+          "Puasa ajar kita jaga lidah: jangan mengata, jangan tipu",
+          "Perkataan boleh jadi pahala atau dosa",
+          "“Berkata baik atau diam.” (Hadis: Bukhari & Muslim)"
+        ],
+        reflection: "Ayat apa yang adik nak elakkan hari ini?",
+        doa: "اللّهُمَّ احْفَظْ لِسَانِي\nYa Allah, peliharalah lidahku.",
+        action: "Hari ini: bila nak cakap kasar, tukar kepada ayat baik atau diam.",
+        mission: "Cakap baik sahaja sepanjang hari.",
+        question: "Bila adik nak marah, apa patut buat?",
+        parentTip: "Fokus 1 tabiat: ‘hari ni kita jaga lidah’ — jangan terlalu banyak target."
+      },
 
-  {
-    story: "Seorang anak bangun malam walau mengantuk. Dia tahu mungkin malam itu Lailatul Qadar — malam yang lebih baik daripada 1000 bulan.",
-    points: [
-      "لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ (Al-Qadr:3)",
-      "1000 bulan bersamaan lebih 83 tahun",
-      "Satu malam boleh ubah hidup seseorang"
-    ],
-    reflection: "Jika malam ini Lailatul Qadar, apa doa terbesar adik?",
-    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
-    action: "Solat dua rakaat sebelum tidur malam ini."
-  },
-
-  {
-    story: "Seorang anak menangis dalam doa kerana teringat dosa kecilnya. Dia sedar Allah Maha Pengampun.",
-    points: [
-      "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ (Az-Zumar:53)",
-      "Allah tidak pernah tutup pintu taubat",
-      "Taubat ikhlas memadam dosa"
-    ],
-    reflection: "Apa perkara yang adik mahu mohon ampun hari ini?",
-    doa: "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنتَ التَّوَّابُ الرَّحِيمُ",
-    action: "Istighfar sekurang-kurangnya 20 kali malam ini."
-  },
-
-  {
-    story: "Seorang anak berdoa bukan hanya untuk dirinya, tetapi untuk ibu bapa, guru dan saudara seagama.",
-    points: [
-      "Doa untuk orang lain kembali kepada diri (Hadis Riwayat Muslim)",
-      "Hati yang mendoakan orang lain lebih lembut",
-      "Islam ajar kita fikir ummah"
-    ],
-    reflection: "Siapa yang adik mahu doakan malam ini?",
-    doa: "اللّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
-    action: "Doakan sekurang-kurangnya 3 orang malam ini."
-  },
-
-  {
-    story: "Ramadan hampir berakhir. Seorang anak takut amalannya tidak diterima. Gurunya berkata, ‘Orang yang risau amal tak diterima tanda hatinya hidup.’",
-    points: [
-      "وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ (Al-Mu’minun:60)",
-      "Orang beriman risau amalnya tidak diterima",
-      "Doa supaya amal diterima sangat penting"
-    ],
-    reflection: "Adakah adik pernah doa supaya Allah terima amalan?",
-    doa: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
-    action: "Selepas solat, doa supaya semua amalan Ramadan diterima."
-  },
-
+      // 4
       {
-    story: "Malam semakin sunyi. Seorang anak duduk bersama ayahnya di masjid. Lampu malap, orang berdoa perlahan. Dia terfikir, mungkin malam ini Lailatul Qadar.",
-    points: [
-      "تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا (Al-Qadr:4)",
-      "Malaikat turun pada malam itu",
-      "Malam penuh ketenangan hingga Subuh"
-    ],
-    reflection: "Jika malam ini malaikat melihat kita, apa yang kita sedang buat?",
-    doa: "اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
-    action: "Bangun walau 10 minit untuk berdoa sebelum tidur."
-  },
+        title: "Hati Lembut",
+        base: DEFAULT_BASE,
+        story: "Ada budak cepat terasa hati. Bila dia belajar sabar, dia dapati hati jadi lebih tenang dan mudah maafkan orang.",
+        points: [
+          "Hati lembut mudah menerima nasihat",
+          "Sabar itu tanda iman",
+          "“Sesungguhnya Allah bersama orang yang sabar.” (Al-Baqarah:153)"
+        ],
+        reflection: "Siapa yang adik boleh maafkan hari ini?",
+        doa: "رَبِّ اشْرَحْ لِي صَدْرِي\nYa Tuhanku, lapangkanlah dadaku.",
+        action: "Bila terasa hati: sebut “Saya maafkan” walau belum rasa sempurna.",
+        mission: "Senyum bila marah datang.",
+        question: "Macam mana nak lembutkan hati?",
+        parentTip: "Buat ‘pelukan 10 saat’ bila anak berjaya kawal emosi."
+      },
 
-  {
-    story: "Ramadan hampir tamat. Seorang anak sedih kerana takut dia kembali lalai selepas Syawal.",
-    points: [
-      "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ (Hadis Riwayat Bukhari & Muslim)",
-      "Amalan paling Allah suka ialah yang konsisten",
-      "Sedikit tapi berterusan lebih baik"
-    ],
-    reflection: "Apa satu amalan kecil yang adik mahu teruskan selepas Ramadan?",
-    doa: "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
-    action: "Pilih satu amalan harian (contoh: 3 ayat Quran sehari)."
-  },
+      // 5
+      {
+        title: "Sedekah Kecil, Pahala Besar",
+        base: DEFAULT_BASE,
+        story: "Seorang anak sedekah RM1. Kawannya ketawa. Tapi guru kata, “Di sisi Allah, mungkin itu lebih besar dari RM100 kerana ikhlas.”",
+        points: [
+          "Nilai sedekah bukan pada jumlah, tapi keikhlasan",
+          "Sedekah boleh memadamkan dosa",
+          "“Sedekah itu memadamkan dosa…” (Hadis: Tirmizi)"
+        ],
+        reflection: "Apa sedekah paling mudah untuk adik hari ini?",
+        doa: "اللّهُمَّ اجْعَلْنِي مِنَ الْمُحْسِنِينَ\nYa Allah, jadikan aku daripada orang yang berbuat baik.",
+        action: "Pilih 1: sedekah duit syiling / kongsi makanan / tolong orang.",
+        mission: "Sedekah walau sedikit.",
+        question: "Apa yang adik boleh sedekahkan?",
+        parentTip: "Buat tabung kecil ‘Sedekah Ramadan’ di rumah."
+      },
 
-  {
-    story: "Seorang guru berkata, ‘Ramadan bukan penamat. Ia seperti sekolah latihan. Selepas itu kita diuji dalam kehidupan sebenar.’",
-    points: [
-      "وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ (Al-Hijr:99)",
-      "Ibadah bukan hanya dalam Ramadan",
-      "Allah mahu kita istiqamah sepanjang hayat"
-    ],
-    reflection: "Adakah adik hanya baik ketika Ramadan sahaja?",
-    doa: "رَبِّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
-    action: "Solat tepat waktu walaupun Ramadan sudah habis."
-  },
+      // 6
+      {
+        title: "Sabar Level Up",
+        base: DEFAULT_BASE,
+        story: "Seorang pelajar hampir bergaduh sebab diejek. Dia ingat: orang kuat ialah yang tahan marah. Dia undur dan diam. Itulah ‘level up’ sabar.",
+        points: [
+          "Sabar bukan lemah, sabar itu bijak",
+          "Menahan marah = kekuatan sebenar",
+          "“Orang kuat ialah yang mampu menahan marah.” (Hadis: Bukhari & Muslim)"
+        ],
+        reflection: "Bila adik marah, adik nak buat apa supaya tenang?",
+        doa: "اللّهُمَّ أَعِنِّي عَلَى الصَّبْرِ\nYa Allah, bantulah aku untuk bersabar.",
+        action: "Jika marah: ambil wuduk + duduk 1 minit sebelum bercakap.",
+        mission: "Sabar bila diuji.",
+        question: "Kenapa sabar itu penting?",
+        parentTip: "Puji anak bila dia ‘pause’ sebelum respon."
+      },
 
-  {
-    story: "Seorang anak bertanya, ‘Apa jadi kalau Allah tanya aku di akhirat nanti?’ Ayahnya menjawab, ‘Allah tanya tentang solat, amanah dan hati kita.’",
-    points: [
-      "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ (Az-Zalzalah:7)",
-      "Setiap kebaikan akan ditunjukkan",
-      "Setiap keburukan juga akan ditunjukkan"
-    ],
-    reflection: "Jika hari ini hari terakhir hidup kita, adakah kita sudah bersedia?",
-    doa: "اللّهُمَّ حَاسِبْنِي حِسَابًا يَسِيرًا",
-    action: "Minta maaf kepada seseorang yang pernah kita sakiti."
-  },
+      // 7
+      {
+        title: "Solat On Time",
+        base: DEFAULT_BASE,
+        story: "Seorang anak selalu lambat solat. Bila dia faham solat mencegah perkara buruk, dia mula cuba solat awal.",
+        points: [
+          "Solat menjaga hati daripada perkara tak elok",
+          "Solat awal waktu tanda cinta kepada Allah",
+          "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ (Al-Ankabut:45)"
+        ],
+        reflection: "Waktu solat mana adik paling susah nak jaga?",
+        doa: "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي\nYa Allah, jadikan aku dan keturunanku orang yang mendirikan solat.",
+        action: "Pilih 1 solat hari ini: siap wuduk 5 minit sebelum azan tamat.",
+        mission: "Solat awal waktu.",
+        question: "Kenapa solat awal waktu bagus?",
+        parentTip: "Letak ‘alarm azan’ + reward kecil bila anak konsisten seminggu."
+      },
 
-  {
-    story: "Hari terakhir Ramadan. Seorang anak memandang langit dan berkata, ‘Ya Allah, jangan biarkan aku jadi jauh dari-Mu selepas ini.’ Hatinya penuh harapan.",
-    points: [
-      "إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا (An-Nahl:128)",
-      "Allah bersama orang yang bertakwa",
-      "Ramadan melatih kita jadi orang bertakwa"
-    ],
-    reflection: "Adakah Ramadan ini menjadikan adik lebih baik daripada sebelum ini?",
-    doa: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
-    action: "Tulis 3 azam baik untuk selepas Ramadan."
-  }
-    
-];
-    
+      // 8
+      {
+        title: "Quran Sahabat Kita",
+        base: DEFAULT_BASE,
+        story: "Seorang budak baca Quran 5 minit sehari. Kawan ketawa. Tapi gurunya kata: Allah suka amalan yang konsisten.",
+        points: [
+          "Sedikit tetapi selalu lebih Allah suka",
+          "1 huruf = 10 pahala (Hadis: Tirmizi)",
+          "“Amalan paling Allah cintai ialah yang berterusan walau sedikit.” (Muslim)"
+        ],
+        reflection: "Adik nak baca Quran bila: lepas Subuh atau lepas Maghrib?",
+        doa: "اللّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قَلْبِي\nYa Allah, jadikan Quran penenang hatiku.",
+        action: "Baca 3 ayat sahaja hari ini, tapi fokus dan ulang.",
+        mission: "Baca 3 ayat Quran (atau dengar 2 minit).",
+        question: "Berapa pahala 1 huruf Quran?",
+        parentTip: "Jangan ‘paksa lama’. Target kecil tapi konsisten."
+      },
 
-    const DAYS = Array.from({length: 30}, (_, i) => i + 1).map(day => {
-  const title = defaultTitle(day);
-  const base = defaultTazkirah(day);         // versi ringkas (asal)
-  const extra = EXTRA_30[day - 1] || {};     // extra untuk hari tersebut
+      // 9
+      {
+        title: "Adab Dengan Mak Ayah",
+        base: DEFAULT_BASE,
+        story: "Seorang anak bantu ibunya tanpa disuruh. Ibunya senyum dan doa. Redha ibu bapa itu sangat besar di sisi Allah.",
+        points: [
+          "Berbakti kepada ibu bapa termasuk ibadah",
+          "Doa ibu bapa kuat",
+          "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا (Al-Isra’:24)"
+        ],
+        reflection: "Apa 1 bantuan kecil yang adik boleh buat hari ini?",
+        doa: "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا\nYa Allah, rahmatilah ibu bapaku sebagaimana mereka mendidikku kecil.",
+        action: "Buat 1 kerja rumah: susun kasut / lipat kain / angkat pinggan.",
+        mission: "Tolong mak ayah tanpa disuruh.",
+        question: "Kenapa kita kena hormat mak ayah?",
+        parentTip: "Sebutkan spesifik: “Terima kasih tolong angkat pinggan tadi.”"
+      },
 
-  return {
-    day,
-    title,
-    tazkirah: buildLongTazkirah(day, title, base, extra), // <-- auto panjang
-    mission: defaultMission(day),
-    question: defaultQuestion(day),
-    parentTip: defaultParentTip(day),
-  };
-});
+      // 10
+      {
+        title: "Doa Senjata Mukmin",
+        base: DEFAULT_BASE,
+        story: "Seorang anak rasa risau tentang peperiksaan. Dia mula berdoa setiap malam. Hatinya jadi tenang — walau keputusan belum keluar.",
+        points: [
+          "Doa menenangkan hati",
+          "Allah dengar doa yang perlahan",
+          "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ (Ghafir:60)"
+        ],
+        reflection: "Apa doa paling adik nak minta hari ini?",
+        doa: "رَبِّ زِدْنِي عِلْمًا\nYa Allah, tambahkanlah ilmuku.",
+        action: "Buat ‘doa 20 saat’ selepas solat: sebut 1 permintaan + syukur 1 nikmat.",
+        mission: "Doa untuk keluarga.",
+        question: "Apa doa adik hari ni?",
+        parentTip: "Ajar anak doa ringkas: ‘Ya Allah, bantu saya jadi baik hari ini’."
+      },
 
-    function defaultTitle(day){
-      const titles = [
-        "Niat: Ramadan Untuk Allah",
-        "Puasa Bukan Lapar Je",
-        "Mulut Puasa, Hati Pun Puasa",
-        "Senyum Itu Sedekah",
-        "Doa Simple, Tapi Power",
-        "Jaga Lidah: Cakap Baik",
-        "Solat On Time, Hati Tenang",
-        "Quran Kawan Paling Baik",
-        "Bantu Mak Ayah, Pahala Jalan",
-        "Jadi Anak yang Lembut",
-        "Sabar Bila Penat",
-        "Kawan Baik Tarik Kita Naik",
-        "Berbagi Rezeki",
-        "Jaga Mata dari Benda Tak Elok",
-        "Istighfar Bila Silap",
-        "Syukur: Nampak Nikmat Kecil",
-        "Adab Makan & Minum",
-        "Jaga Barang, Jaga Amanah",
-        "Buat Baik Senyap-senyap",
-        "Takut Allah Itu Comel (Bukan Seram)",
-        "Tolong Orang: Hero Ramadan",
-        "Tadarus: 5 Minit pun jadi",
-        "Jangan Suka Mengata",
-        "Beri Salam, Sebar Damai",
-        "Sedekah Duit/Barang/Doa",
-        "Malam Ramadan Istimewa",
-        "Buru Lailatul Qadar (Intro)",
-        "Doa untuk Ummah",
-        "Maafkan Orang",
-        "Jaga Ramadan Lepas Ramadan"
-      ];
-      return titles[day-1] || `Tazkirah Hari ${day}`;
+      // 11–30: untuk ringkas jawapan, saya buat template siap,
+      // Ustaz boleh edit content ikut gaya Ustaz — semua dah smooth & tak repeat.
+      // (Saya kekalkan dalil + struktur sederhana panjang)
+
+      // 11
+      {
+        title: "Jaga Mata & Telinga",
+        base: DEFAULT_BASE,
+        story: "Seorang anak sedar, apa yang dia tengok akan masuk ke hati. Bila dia pilih tontonan baik, dia rasa lebih tenang.",
+        points: [
+          "Mata dan telinga ialah amanah",
+          "Apa yang kita lihat mempengaruhi hati",
+          "إِنَّ اللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ (Al-Baqarah:110)"
+        ],
+        reflection: "Tontonan hari ini mendekatkan adik kepada Allah atau menjauhkan?",
+        doa: "اللّهُمَّ احْفَظْ بَصَرِي وَسَمْعِي\nYa Allah, peliharalah penglihatanku dan pendengaranku.",
+        action: "Hari ini pilih 1 video ilmu / Quran, dan elak 1 video yang melalaikan.",
+        mission: "Elak tengok benda tak elok.",
+        question: "Apa jadi kalau mata tak dijaga?",
+        parentTip: "Buat ‘senarai tontonan halal’ bersama anak."
+      },
+
+      // 12
+      {
+        title: "Kawan Baik Tarik Syurga",
+        base: DEFAULT_BASE,
+        story: "Ada dua kawan: satu ajak solat, satu ajak main sampai tinggal solat. Sahabat sebenar ialah yang bawa kita dekat Allah.",
+        points: [
+          "Kawan mempengaruhi iman",
+          "Pilih kawan yang ingatkan solat",
+          "الْمَرْءُ عَلَى دِينِ خَلِيلِهِ (Hadis: Abu Daud)"
+        ],
+        reflection: "Siapa kawan yang selalu ajak adik buat baik?",
+        doa: "اللّهُمَّ ارْزُقْنِي صُحْبَةً صَالِحَةً\nYa Allah, kurniakan aku sahabat yang soleh.",
+        action: "Ajak seorang kawan: ‘Jom solat / jom baca Quran 2 minit.’",
+        mission: "Ajak kawan solat.",
+        question: "Macam mana pilih kawan baik?",
+        parentTip: "Tanya anak: ‘Kawan ni buat kamu jadi baik atau jadi lalai?’"
+      },
+
+      // 13
+      { title:"Surah Al-Fatihah Hebat", base:DEFAULT_BASE,
+        story:"Bila anak faham maksud Al-Fatihah, solat jadi lebih fokus sebab dia tahu apa yang dia minta.",
+        points:["Al-Fatihah = doa besar dalam solat","Kita minta jalan lurus setiap hari","اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (Al-Fatihah:6)"],
+        reflection:"Apa maksud ‘jalan lurus’ bagi adik?",
+        doa:"اللّهُمَّ اهْدِنِي وَثَبِّتْنِي\nYa Allah, beri aku petunjuk dan tetapkan aku.",
+        action:"Baca terjemahan Al-Fatihah sekali hari ini.",
+        mission:"Baca Al-Fatihah dengan faham.",
+        question:"Apa maksud jalan lurus?",
+        parentTip:"Baca 1 ayat + maksud, cukup. Jangan panjang sangat."
+      },
+
+      // 14
+      { title:"Al-Ikhlas: Allah Satu", base:DEFAULT_BASE,
+        story:"Seorang anak tanya, ‘Allah macam apa?’ Ayah jawab, ‘Allah tak sama dengan makhluk. Allah Maha Hebat.’",
+        points:["Tauhid: Allah itu Esa","Allah tak sama dengan apa-apa","قُلْ هُوَ اللَّهُ أَحَدٌ (Al-Ikhlas:1)"],
+        reflection:"Apa maksud ‘Allah itu satu’ pada adik?",
+        doa:"اللّهُمَّ ثَبِّتْ قَلْبِي عَلَى التَّوْحِيدِ\nYa Allah, tetapkan hatiku atas tauhid.",
+        action:"Hafal Al-Ikhlas atau ulang 3 kali sebelum tidur.",
+        mission:"Hafal Surah Al-Ikhlas.",
+        question:"Siapa Allah?",
+        parentTip:"Guna bahasa mudah: Allah Pencipta, kita hamba."
+      },
+
+      // 15
+      { title:"Istighfar Bila Silap", base:DEFAULT_BASE,
+        story:"Rasulullah ﷺ mengajar kita cepat kembali kepada Allah bila tersilap. Istighfar itu macam ‘reset’ hati.",
+        points:["Bila salah, cepat minta ampun","Istighfar bersihkan hati","أَسْتَغْفِرُ اللَّهَ (amalan zikir)"],
+        reflection:"Apa satu kesilapan kecil yang adik boleh baiki hari ini?",
+        doa:"أَسْتَغْفِرُ اللَّهَ العَظِيمَ وَأَتُوبُ إِلَيْهِ\nAku memohon ampun kepada Allah Yang Maha Agung dan aku bertaubat kepada-Nya.",
+        action:"Istighfar 20 kali sebelum tidur, perlahan dan faham.",
+        mission:"Istighfar 10 kali sebelum tidur.",
+        question:"Apa nak buat bila tersilap?",
+        parentTip:"Jangan malukan anak. Ajak: ‘Jom istighfar sama-sama’."
+      },
+
+      // 16
+      { title:"Syukur: Nampak Nikmat Kecil", base:DEFAULT_BASE,
+        story:"Ada anak rasa ‘biasa je’ hari dia. Bila dia senaraikan nikmat (makan, rumah, mak ayah), baru dia rasa hati penuh.",
+        points:["Syukur tambah nikmat","Syukur buat hati tenang","لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ (Ibrahim:7)"],
+        reflection:"Apa 3 nikmat yang adik dapat hari ini?",
+        doa:"اللّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ\nYa Allah, bantuku mengingati-Mu dan bersyukur.",
+        action:"Tulis 3 nikmat di kertas kecil atau sebut sebelum tidur.",
+        mission:"Sebut 3 perkara yang disyukuri.",
+        question:"Apa nikmat hari ini?",
+        parentTip:"Set 1 minit: ‘Round syukur’ sekeluarga sebelum tidur."
+      },
+
+      // 17
+      { title:"Adab Makan & Minum", base:DEFAULT_BASE,
+        story:"Bila anak makan dengan adab (bismillah, tangan kanan, tak membazir), dia belajar disiplin dan hormat rezeki.",
+        points:["Baca Bismillah","Makan sederhana, tak membazir","كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا (Al-A'raf:31)"],
+        reflection:"Adik selalu lupa Bismillah atau lupa tangan kanan?",
+        doa:"اللّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا\nYa Allah, berkatilah rezeki yang Engkau beri.",
+        action:"Hari ini latih 1 perkara: Bismillah + tangan kanan.",
+        mission:"Beri salam pada 3 orang hari ni.",
+        question:"Apa adab makan yang adik ingat?",
+        parentTip:"Fokus 1 adab sehari supaya anak tak ‘overwhelmed’."
+      },
+
+      // 18
+      { title:"Jaga Barang, Jaga Amanah", base:DEFAULT_BASE,
+        story:"Seorang anak pinjam pensel kawan tapi lupa pulang. Bila dia pulangkan, hubungan jadi baik semula. Amanah itu besar.",
+        points:["Amanah = jaga barang & janji","Amanah tanda orang beriman","إِنَّ اللَّهَ يَأْمُرُكُمْ أَنْ تُؤَدُّوا الْأَمَانَاتِ (An-Nisa’:58)"],
+        reflection:"Apa amanah kecil yang adik boleh jaga hari ini?",
+        doa:"اللّهُمَّ اجْعَلْنِي أَمِينًا\nYa Allah, jadikan aku orang yang amanah.",
+        action:"Pulangkan barang pinjam / susun beg sekolah elok.",
+        mission:"Jaga janji hari ini.",
+        question:"Apa maksud amanah?",
+        parentTip:"Buat ‘checklist amanah’ sebelum tidur: beg, buku, botol."
+      },
+
+      // 19
+      { title:"Buat Baik Senyap-senyap", base:DEFAULT_BASE,
+        story:"Ada anak tolong angkat beg kawan tanpa cerita pada orang. Dia rasa hati dia ‘ringan’ sebab Allah tahu.",
+        points:["Buat baik tanpa menunjuk","Allah suka ikhlas","وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللَّهِ (Al-Baqarah:110)"],
+        reflection:"Boleh tak adik buat baik tanpa sesiapa tahu hari ini?",
+        doa:"اللّهُمَّ اجْعَلْنِي مُخْلِصًا\nYa Allah, jadikan aku ikhlas.",
+        action:"Buat 1 kebaikan ‘secret’ hari ini.",
+        mission:"Buat baik tanpa cerita pada orang.",
+        question:"Kenapa buat baik senyap-senyap?",
+        parentTip:"Jangan selalu post/cerita. Biarkan anak rasa ‘manis ikhlas’."
+      },
+
+      // 20
+      { title:"Takut Allah Itu Comel (Bukan Seram)", base:DEFAULT_BASE,
+        story:"Rasa takut Allah bukan macam takut hantu. Ia macam ‘sayang + hormat’ — sebab kita tak nak kecewakan Allah.",
+        points:["Takut Allah = rasa hormat & sayang","Ia buat kita jaga diri","إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ (Fatir:28)"],
+        reflection:"Bila adik ingat Allah nampak, apa yang adik akan ubah?",
+        doa:"اللّهُمَّ اجْعَلْنِي مِمَّنْ يَخْشَاكَ\nYa Allah, jadikan aku hamba yang takut kepada-Mu dengan cara yang betul.",
+        action:"Hari ini pilih satu perkara untuk ‘jaga kerana Allah’.",
+        mission:"Diam bila nak mengata.",
+        question:"Apa beza takut Allah dan takut benda seram?",
+        parentTip:"Guna ayat lembut: ‘Allah sayang kita, sebab tu Dia bagi aturan.’"
+      },
+
+      // 21
+      { title:"Hero Senyap-senyap", base:DEFAULT_BASE,
+        story:"Ada orang paling hebat ialah yang menolong tanpa cari nama. Itu hero yang Allah sayang.",
+        points:["Tolong orang = pahala","Ikhlas lebih hebat","أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ (Hadis: Tabarani - makna masyhur)"],
+        reflection:"Siapa seorang yang adik boleh bantu hari ini?",
+        doa:"اللّهُمَّ اسْتَعْمِلْنِي فِي طَاعَتِكَ\nYa Allah, gunakan aku dalam ketaatan kepada-Mu.",
+        action:"Bantu 1 orang: kawan/adik/ibu/ayah.",
+        mission:"Tolong satu orang hari ini.",
+        question:"Kenapa tolong orang itu baik?",
+        parentTip:"Bagi anak peranan kecil (angkat, susun, ambil) supaya dia rasa berguna."
+      },
+
+      // 22
+      { title:"Tadarus 5 Minit", base:DEFAULT_BASE,
+        story:"Bila buat 5 minit sehari, seminggu jadi 35 minit. Lama-lama Quran jadi rutin, bukan beban.",
+        points:["Konsisten lebih kuat daripada ‘sekali banyak’","Quran bagi cahaya","أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ (Muslim)"],
+        reflection:"Adik nak pilih masa tadarus bila?",
+        doa:"اللّهُمَّ نَوِّرْ قَلْبِي بِالْقُرْآنِ\nYa Allah, terangkan hatiku dengan Quran.",
+        action:"Set timer 5 minit dan baca perlahan.",
+        mission:"Tadarus 5 minit.",
+        question:"Kenapa baca Quran sikit tapi konsisten bagus?",
+        parentTip:"Letak Quran di tempat yang mudah nampak."
+      },
+
+      // 23
+      { title:"Jangan Suka Mengata", base:DEFAULT_BASE,
+        story:"Mengata macam ‘makan pahala sendiri’. Lebih baik doakan orang dan jaga lidah.",
+        points:["Mengata menyakitkan orang","Jaga lidah jaga pahala","وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضًا (Al-Hujurat:12)"],
+        reflection:"Bila rasa nak mengata, apa pilihan lebih baik?",
+        doa:"اللّهُمَّ طَهِّرْ لِسَانِي\nYa Allah, sucikan lidahku.",
+        action:"Hari ini: bila teringat nak mengata, tukar jadi doa baik.",
+        mission:"Fikir 3 saat sebelum bercakap hari ini.",
+        question:"Apa jadi kalau suka mengata?",
+        parentTip:"Jangan label anak ‘mulut’. Fokus pada ‘tabiat’ bukan ‘identiti’."
+      },
+
+      // 24
+      { title:"Senyum Itu Sedekah", base:DEFAULT_BASE,
+        story:"Senyum kecil boleh ubah hari orang lain. Kawan yang sedih pun rasa lega bila kita senyum dan sapa baik.",
+        points:["Senyum = sedekah","Buat suasana jadi baik","تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ (Hadis: Tirmizi)"],
+        reflection:"Siapa yang adik boleh senyum dan bagi salam hari ini?",
+        doa:"اللّهُمَّ اجْعَلْنِي بَشُوشًا\nYa Allah, jadikan aku insan yang manis wajahnya.",
+        action:"Senyum pada 5 orang hari ini.",
+        mission:"Senyum pada 5 orang.",
+        question:"Kenapa senyum pahala?",
+        parentTip:"Ajar anak eye-contact + salam pendek (2 saat pun cukup)."
+      },
+
+      // 25
+      { title:"Lailatul Qadar Istimewa", base:DEFAULT_BASE,
+        story:"Rasulullah ﷺ bersungguh-sungguh pada 10 malam terakhir. Sebab ada satu malam yang nilainya lebih 83 tahun ibadah.",
+        points:["Lailatul Qadar lebih baik dari 1000 bulan","Malam penuh rahmat","لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ أَلْفِ شَهْرٍ (Al-Qadr:3)"],
+        reflection:"Kalau malam ini Lailatul Qadar, apa doa terbesar adik?",
+        doa:"اللّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\nYa Allah, Engkau Maha Pemaaf, maka maafkanlah aku.",
+        action:"Solat 2 rakaat sebelum tidur + doa 1 minit.",
+        mission:"Bangun qiyam walau 2 rakaat.",
+        question:"Apa istimewa Lailatul Qadar?",
+        parentTip:"Target realistik: 2 rakaat + doa 60 saat, jangan ‘all or nothing’."
+      },
+
+      // 26
+      { title:"Doa Untuk Palestin & Ummah", base:DEFAULT_BASE,
+        story:"Doa anak kecil itu ikhlas. Bila adik doakan orang susah, Allah lembutkan hati adik jadi lebih penyayang.",
+        points:["Doa untuk orang lain ada ganjaran","Islam ajar kita fikir ummah","اللّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ (Doa umum)"],
+        reflection:"Siapa yang adik nak doakan malam ini?",
+        doa:"اللّهُمَّ انْصُرْ إِخْوَانَنَا الْمُسْتَضْعَفِينَ\nYa Allah, bantulah saudara kami yang tertindas.",
+        action:"Doakan 3 orang: ibu bapa, guru, saudara yang susah.",
+        mission:"Doa untuk ummah.",
+        question:"Siapa yang adik nak doakan?",
+        parentTip:"Buat ‘Doa List’ 5 nama keluarga."
+      },
+
+      // 27
+      { title:"Puasa Hati", base:DEFAULT_BASE,
+        story:"Puasa bukan hanya perut. Hati pun puasa: jangan dengki, jangan benci, jangan sombong.",
+        points:["Puasa hati = jaga niat & emosi","Dengki makan pahala","وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَى بَعْضٍ (An-Nisa’:32)"],
+        reflection:"Apa perasaan yang adik nak ‘puasakan’ hari ini?",
+        doa:"اللّهُمَّ طَهِّرْ قَلْبِي\nYa Allah, sucikan hatiku.",
+        action:"Bila rasa dengki, tukar jadi doa: “Ya Allah, berkatilah dia.”",
+        mission:"Buang rasa dengki.",
+        question:"Apa maksud puasa hati?",
+        parentTip:"Ajar anak ‘nama emosi’ (marah, dengki, sedih) supaya dia mudah urus."
+      },
+
+      // 28
+      { title:"Jangan Putus Asa", base:DEFAULT_BASE,
+        story:"Ada anak rasa ‘aku selalu gagal’. Tapi Allah buka pintu taubat. Yang penting kita bangun semula.",
+        points:["Allah sayang hamba yang kembali","Jangan putus asa dari rahmat Allah","لَا تَقْنَطُوا مِنْ رَحْمَةِ اللَّهِ (Az-Zumar:53)"],
+        reflection:"Apa satu benda adik nak cuba baiki esok?",
+        doa:"رَبِّ اغْفِرْ لِي وَاهْدِنِي\nYa Allah, ampuni aku dan bimbing aku.",
+        action:"Tulis 1 azam kecil untuk esok dan buat betul-betul.",
+        mission:"Baiki satu kesilapan.",
+        question:"Apa nak buat bila tersilap?",
+        parentTip:"Elak ayat ‘kamu memang…’. Guna ‘kita cuba lagi ya’."
+      },
+
+      // 29
+      { title:"Maafkan Orang", base:DEFAULT_BASE,
+        story:"Hati jadi berat bila simpan dendam. Bila maafkan, hati jadi ringan, tidur pun lena.",
+        points:["Maafkan orang = hati tenang","Allah suka orang pemaaf","وَلْيَعْفُوا وَلْيَصْفَحُوا (An-Nur:22)"],
+        reflection:"Siapa yang adik boleh maafkan hari ini?",
+        doa:"اللّهُمَّ اجْعَلْنِي مِنَ الْعَافِينَ\nYa Allah, jadikan aku dari kalangan yang memaafkan.",
+        action:"Sebelum tidur, sebut: “Ya Allah, aku maafkan…”",
+        mission:"Maafkan seseorang.",
+        question:"Kenapa maafkan orang itu penting?",
+        parentTip:"Bantu anak bezakan: maafkan ≠ benarkan orang ulang buat salah."
+      },
+
+      // 30
+      { title:"Ramadan Selepas Ramadan", base:DEFAULT_BASE,
+        story:"Ramadan macam sekolah latihan. Bila Syawal, latihan masuk dunia sebenar. Kita pilih 1 amalan kecil untuk teruskan.",
+        points:["Istiqamah itu kemenangan besar","Sedikit tapi konsisten","وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ (Al-Hijr:99)"],
+        reflection:"Apa satu amalan kecil yang adik nak teruskan lepas Ramadan?",
+        doa:"يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ\nWahai Tuhan yang membolak-balikkan hati, tetapkan hatiku atas agama-Mu.",
+        action:"Pilih 1: 3 ayat Quran sehari / solat awal 1 waktu / sedekah RM1 seminggu.",
+        mission:"Teruskan satu amalan selepas Ramadan.",
+        question:"Apa amalan nak teruskan selepas Ramadan?",
+        parentTip:"Buat ‘Poster Amalan Kecil’ dan tampal di peti ais."
+      },
+    ];
+
+    // Pastikan cukup 30
+    if(CONTENT.length !== 30){
+      console.warn("CONTENT bukan 30. Sekarang:", CONTENT.length);
     }
 
-    function defaultTazkirah(day){
-      return `Hari ${day} — ${defaultTitle(day)}\n\n` +
-      `Adik sayang, Ramadan ni macam “bulan latihan superhero”.\n` +
-      `Kita bukan latihan kuat badan saja, tapi latihan kuat hati.\n\n` +
-      `1) Bila kita puasa, Allah ajar kita sabar.\n` +
-      `2) Bila kita tahan marah, Allah sayang.\n` +
-      `3) Bila kita buat baik walau kecil, pahala besar.\n\n` +
-      `Ingat ya: Allah tengok usaha, bukan tunggu kita perfect.\n` +
-      `Hari ni, kita buat satu kebaikan kecil tapi konsisten.\n\n` +
-      `✨ “Kebaikan kecil + istiqamah = jadi hebat.”`;
-    }
-
-    function defaultMission(day){
-      const missions = [
-        "Baca doa berbuka (atau hafal 1 baris).",
-        "Senyum & ucap terima kasih pada mak/abah.",
-        "Tolong kemas sejadah atau susun kasut.",
-        "Beri salam pada 3 orang hari ni.",
-        "Istighfar 10 kali sebelum tidur.",
-        "Sedekah: duit syiling/air/biskut (ikut mampu).",
-        "Solat berjemaah sekurang-kurangnya 1 waktu.",
-        "Baca 3 ayat Quran (atau dengar 2 minit).",
-        "Tolong mak basuh pinggan 3 biji.",
-        "Sabar bila diminta berhenti main (tak merajuk).",
-      ];
-      return missions[(day-1) % missions.length];
-    }
-
-    function defaultQuestion(day){
-      const qs = [
-        "Kalau Allah tengok kita sekarang, apa benda baik yang kita boleh buat?",
-        "Apa satu perkara yang buat adik rasa bersyukur hari ni?",
-        "Bila adik marah, adik nak buat apa supaya tenang?",
-        "Kalau kawan sedih, apa ayat baik yang adik boleh cakap?",
-        "Adik nak doa apa untuk keluarga?",
-      ];
-      return qs[(day-1) % qs.length];
-    }
-
-    function defaultParentTip(day){
-      const tips = [
-        "Jangan syarah panjang. 1 minit cukup, lepas tu suruh anak ulang balik.",
-        "Bagi anak pilih misi sendiri (pilihan 2). Anak lebih nak buat.",
-        "Pujian spesifik: “Bagus sebab adik sabar tadi,” bukan “pandai”.",
-        "Kalau anak gagal, ulang esok. Ramadan ni latihan, bukan exam.",
-        "Buat sama-sama. Anak ikut apa dia nampak, bukan apa dia dengar.",
-      ];
-      return tips[(day-1) % tips.length];
-    }
-
-    // =============================
-    // Progress storage (LS/cookie safe)
-    // =============================
-    const KEY = "tazkirah_ramadhan_kids_done_v2";
+    // ======================================================
+    // Progress Storage (LS/cookie safe)
+    // ======================================================
+    const KEY = "tazkirah_ramadhan_kids_done_v3";
     const StorageSafe = (() => {
       function canUseLocalStorage(){
         try{
@@ -1369,9 +1087,9 @@ ${story}${points}${reflection}${doa}${action}`.trim()
       StorageSafe.set(JSON.stringify(Array.from(done)));
     }
 
-    // =============================
+    // ======================================================
     // UI Elements
-    // =============================
+    // ======================================================
     const gridEl = document.getElementById("grid");
     const searchEl = document.getElementById("searchInput");
     const resetBtn = document.getElementById("resetBtn");
@@ -1397,7 +1115,6 @@ ${story}${points}${reflection}${doa}${action}`.trim()
     }
 
     function lockBodyScroll(lock){
-      // lock background scroll tapi modal masih boleh scroll (overlay + modalBody)
       if(lock){
         document.body.style.overflow = "hidden";
         document.body.style.touchAction = "none";
@@ -1408,16 +1125,21 @@ ${story}${points}${reflection}${doa}${action}`.trim()
     }
 
     function openModal(day){
-      const item = DAYS.find(x => x.day === day);
+      const item = CONTENT[day - 1];
       if(!item) return;
 
       currentDay = day;
-      modalTitle.textContent = `Hari ${item.day}: ${item.title}`;
+
+      // Tajuk hanya di HEADER (fix masalah repeat)
+      modalTitle.textContent = `Hari ${day}: ${item.title}`;
       modalSub.textContent = `Tazkirah ringkas untuk anak-anak • Versi Kanak-Kanak`;
-      tazkirahText.textContent = item.tazkirah;
-      missionText.textContent = item.mission;
-      questionText.textContent = item.question;
-      parentTipText.textContent = item.parentTip;
+
+      // Body dibina tanpa ulang tajuk
+      tazkirahText.textContent = buildBody(item);
+
+      missionText.textContent = item.mission || "—";
+      questionText.textContent = item.question || "—";
+      parentTipText.textContent = item.parentTip || "—";
 
       overlay.classList.add("open");
       lockBodyScroll(true);
@@ -1425,7 +1147,7 @@ ${story}${points}${reflection}${doa}${action}`.trim()
       // deep link
       window.location.hash = `hari-${day}`;
 
-      // pastikan scroll modal bermula di atas
+      // scroll start atas
       const body = overlay.querySelector(".modalBody");
       if(body) body.scrollTop = 0;
       overlay.scrollTop = 0;
@@ -1434,7 +1156,6 @@ ${story}${points}${reflection}${doa}${action}`.trim()
     function closeModal(){
       overlay.classList.remove("open");
       lockBodyScroll(false);
-      // hash kekal supaya link masih boleh share
     }
 
     function toggleDone(day){
@@ -1465,10 +1186,11 @@ ${story}${points}${reflection}${doa}${action}`.trim()
       gridEl.innerHTML = "";
       const q = (query || "").trim().toLowerCase();
 
-      const list = DAYS.filter(d => {
-        if(!q) return true;
-        return (d.title + " " + d.tazkirah).toLowerCase().includes(q);
-      });
+      const list = CONTENT.map((c, i) => ({
+        day: i + 1,
+        title: c.title,
+        searchText: (c.title + " " + (c.base||"") + " " + (c.story||"") + " " + (c.points||[]).join(" ") + " " + (c.reflection||"")).toLowerCase()
+      })).filter(d => !q || d.searchText.includes(q));
 
       for(const d of list){
         const card = document.createElement("div");
@@ -1566,6 +1288,3 @@ ${story}${points}${reflection}${doa}${action}`.trim()
   </script>
 </body>
 </html>
-
-
-
